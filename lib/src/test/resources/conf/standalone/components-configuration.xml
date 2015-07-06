@@ -7,20 +7,20 @@
      <type>org.exoplatform.codefestH.service.mock.CalendarAPIimpl</type>
   </component>
   <component>
-     <key>org.exoplatform.codefestH.service.Meeting</key>
-     <type>org.exoplatform.codefestH.service.mock.Meetingimpl</type>
+     <key>org.exoplatform.codefestH.service.MeetingService</key>
+     <type>org.exoplatform.codefestH.service.mock.MeetingServiceimpl</type>
   </component>
     <component>
-     <key>org.exoplatform.codefestH.service.MeetingComment</key>
-     <type>org.exoplatform.codefestH.service.mock.MeetingCommentimpl</type>
+     <key>org.exoplatform.codefestH.service.MeetingCommentService</key>
+     <type>org.exoplatform.codefestH.service.mock.MeetingCommentServiceimpl</type>
   </component>
     <component>
-     <key>org.exoplatform.codefestH.service.MeetingRoom</key>
-     <type>org.exoplatform.codefestH.service.mock.MeetingRoomimpl</type>
+     <key>org.exoplatform.codefestH.service.MeetingRoomService</key>
+     <type>org.exoplatform.codefestH.service.mock.MeetingRoomServiceimpl</type>
   </component>
       <component>
-     <key>org.exoplatform.codefestH.service.TimeRange</key>
-     <type>org.exoplatform.codefestH.service.mock.TimeRangeimpl</type>
+     <key>org.exoplatform.codefestH.service.TimeRangeService</key>
+     <type>org.exoplatform.codefestH.service.mock.TimeRangeServiceimpl</type>
   </component>
 
 </configuration>

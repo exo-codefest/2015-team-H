@@ -16,11 +16,11 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.Meeting;
+import org.exoplatform.codefestH.service.MeetingService;
 
 /**
  * Created by The eXo Platform SAS
@@ -28,70 +28,46 @@ import org.exoplatform.codefestH.service.TimeRange;
  *          exo@exoplatform.com
  * Jul 6, 2015  
  */
-public class TimeRangeimpl implements TimeRange {
+public class MeetingServiceimpl implements MeetingService {
 
   @Override
-  public String getTimeRangeNodePath() {
+  public Meeting getMeeting(String path) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public boolean setTimeRangeNodePath(String timeRangeNodePath) {
+  public Meeting getMeeting(UUID id) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Meeting removeMeeting(String path) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Meeting removeMeeting(UUID id) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public boolean saveMeeting(Meeting meeting) {
     // TODO Auto-generated method stub
     return false;
   }
 
   @Override
-  public Date getBegin() {
+  public List<Meeting> getMeetingByOwner(String username) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public void setBegin(Date date) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public Date getEnd() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void setEnd(Date date) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public List<String> getWhoVote() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void addVote(String username) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void removeVote(String username) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public boolean isConflict(TimeRange range) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public UUID getID() {
+  public List<Meeting> getMeetingByParticipant(String username) {
     // TODO Auto-generated method stub
     return null;
   }

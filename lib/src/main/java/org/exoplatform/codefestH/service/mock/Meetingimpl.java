@@ -18,6 +18,7 @@ package org.exoplatform.codefestH.service.mock;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingRoom;
@@ -143,6 +144,24 @@ public class Meetingimpl implements Meeting {
   public boolean setLocation(MeetingRoom room) {
     // TODO Auto-generated method stub
     return false;
+  }
+
+  @Override
+  public String getTitle() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setTitle(String title) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public UUID getID() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

@@ -19,16 +19,15 @@ package org.exoplatform.codefestH.service;
 import java.util.Date;
 import java.util.List;
 
-import javax.jcr.Node;
-
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
+ * Store data about Meeting Object
  */
-public interface Meeting {
+public interface Meeting extends Referenceable{
   /**
    * Return path of JCR Node store Meeting data
    * @return 
@@ -55,6 +54,18 @@ public interface Meeting {
   public Date getUpdateTime();
   
   /**
+   * Get Title of Meeting
+   * @return
+   */
+  public String getTitle();
+  
+  /**
+   * Set Title of Meeting
+   * @param description
+   */
+  public void setTitle(String title);
+  
+  /**
    * Get description of Meeting
    * @return
    */
@@ -65,7 +76,6 @@ public interface Meeting {
    * @param description
    */
   public void setDescription(String description);
-  
   /**
    * Get Owner of meeting, only Owner can close and modify Meeting
    * @return username of Owner

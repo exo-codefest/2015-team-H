@@ -16,11 +16,10 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.TimeRangeService;
 
 /**
  * Created by The eXo Platform SAS
@@ -28,72 +27,36 @@ import org.exoplatform.codefestH.service.TimeRange;
  *          exo@exoplatform.com
  * Jul 6, 2015  
  */
-public class TimeRangeimpl implements TimeRange {
+public class TimeRangeServiceimpl implements TimeRangeService {
 
   @Override
-  public String getTimeRangeNodePath() {
+  public TimeRange getTimeRange(String path) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public boolean setTimeRangeNodePath(String timeRangeNodePath) {
+  public TimeRange getTimeRange(UUID id) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public TimeRange removeTimeRange(String path) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public TimeRange removeTimeRange(UUID id) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public boolean saveTimeRange(TimeRange meeting) {
     // TODO Auto-generated method stub
     return false;
-  }
-
-  @Override
-  public Date getBegin() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void setBegin(Date date) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public Date getEnd() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void setEnd(Date date) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public List<String> getWhoVote() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public void addVote(String username) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void removeVote(String username) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public boolean isConflict(TimeRange range) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public UUID getID() {
-    // TODO Auto-generated method stub
-    return null;
   }
 
 }

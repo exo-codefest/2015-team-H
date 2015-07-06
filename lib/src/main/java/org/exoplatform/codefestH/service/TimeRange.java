@@ -26,8 +26,9 @@ import javax.jcr.Node;
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
+ * Store data about TimeRange object
  */
-public interface TimeRange {
+public interface TimeRange extends Referenceable{
   /**
    * Get path of JCR Node store data of Time Range
    * @return
@@ -39,7 +40,7 @@ public interface TimeRange {
    * @param timeRangeNodePath
    * @return
    */
-  public boolean setTimeRangeNode(String timeRangeNodePath);
+  public boolean setTimeRangeNodePath(String timeRangeNodePath);
   
   /**
    * get Start of Time Range

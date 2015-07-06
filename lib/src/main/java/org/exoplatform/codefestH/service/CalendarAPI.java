@@ -21,6 +21,8 @@ package org.exoplatform.codefestH.service;
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
+ * 
+ * This interface help Addon can integrate with Calendar service of Portal
  */
 public interface CalendarAPI {
   /**

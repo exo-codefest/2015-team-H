@@ -16,47 +16,24 @@
  */
 package org.exoplatform.codefestH.service;
 
+import java.util.List;
+import java.util.UUID;
+
+
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
- * Store data about Comment Object
+ * 
+ * Service handle CRUD operation of Meeting
  */
-public interface MeetingComment extends Referenceable{
-  /**
-   * Get path of JCR Node store data of comment
-   * @return
-   */
-  public String getMeetingCommentNodePath();
-  /**
-   * Set path of JCR Node store data of comment
-   * @param meetingCommentNodePath
-   * @return
-   */
-  public boolean setMeetingCommentNodePath(String meetingCommentNodePath);
-  
-  /**
-   * Get owner of comment
-   * @return
-   */
-  public String getCommentOwner();
-  /**
-   * Set owner of comment
-   * @param username
-   */
-  public void setCommentOwner(String username);
-  
-  /**
-   * Get data of comment
-   * @return
-   */
-  public String getComment();
-  
-  /**
-   * Set data of comment
-   * @param comment
-   * @return
-   */
-  public String setComment(String comment);
+public interface MeetingService {
+  public Meeting getMeeting(String path);
+  public Meeting getMeeting(UUID id);
+  public Meeting removeMeeting(String path);
+  public Meeting removeMeeting(UUID id);
+  public boolean saveMeeting(Meeting meeting);
+  public List<Meeting> getMeetingByOwner(String username);
+  public List<Meeting> getMeetingByParticipant(String username);
 }

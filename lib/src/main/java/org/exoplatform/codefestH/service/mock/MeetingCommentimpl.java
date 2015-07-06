@@ -16,6 +16,8 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
+import java.util.UUID;
+
 import org.exoplatform.codefestH.service.MeetingComment;
 
 /**
@@ -58,6 +60,12 @@ public class MeetingCommentimpl implements MeetingComment {
 
   @Override
   public String setComment(String comment) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public UUID getID() {
     // TODO Auto-generated method stub
     return null;
   }

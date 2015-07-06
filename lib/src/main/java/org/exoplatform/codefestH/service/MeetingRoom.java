@@ -24,8 +24,9 @@ import java.util.List;
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
+ * Store data about MeetingRoom object
  */
-public interface MeetingRoom {
+public interface MeetingRoom extends Referenceable{
   /**
    * Get name of Meeting Room
    * @return

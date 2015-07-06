@@ -16,47 +16,16 @@
  */
 package org.exoplatform.codefestH.service;
 
+import java.util.UUID;
+
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
  * Jul 6, 2015  
- * Store data about Comment Object
+ * 
+ * Provice access to mix:referenceable data
  */
-public interface MeetingComment extends Referenceable{
-  /**
-   * Get path of JCR Node store data of comment
-   * @return
-   */
-  public String getMeetingCommentNodePath();
-  /**
-   * Set path of JCR Node store data of comment
-   * @param meetingCommentNodePath
-   * @return
-   */
-  public boolean setMeetingCommentNodePath(String meetingCommentNodePath);
-  
-  /**
-   * Get owner of comment
-   * @return
-   */
-  public String getCommentOwner();
-  /**
-   * Set owner of comment
-   * @param username
-   */
-  public void setCommentOwner(String username);
-  
-  /**
-   * Get data of comment
-   * @return
-   */
-  public String getComment();
-  
-  /**
-   * Set data of comment
-   * @param comment
-   * @return
-   */
-  public String setComment(String comment);
+public interface Referenceable {
+  public UUID getID();
 }
