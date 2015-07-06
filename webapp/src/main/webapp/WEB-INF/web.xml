@@ -27,24 +27,6 @@
 <web-app>
     <display-name>team-h-addon-webapp</display-name>
 
-    <context-param>
-        <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
-        <param-value>collaboration</param-value>
-        <description>Binary assets workspace name</description>
-    </context-param>
-
-    <context-param>
-        <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsPath</param-name>
-        <param-value>/Digital Assets/</param-value>
-        <description>Binary assets path</description>
-    </context-param>
-
-    <context-param>
-        <param-name>CurrentFolder</param-name>
-        <param-value>/Digital Assets/</param-value>
-        <description>Binary assets workspace name</description>
-    </context-param>
-
     <!-- ================================================================== -->
     <!--   RESOURCE FILTER TO CACHE MERGED JAVASCRIPT AND CSS               -->
     <!-- ================================================================== -->
