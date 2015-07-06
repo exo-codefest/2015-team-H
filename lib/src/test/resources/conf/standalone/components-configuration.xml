@@ -1,0 +1,26 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+     <key>org.exoplatform.codefestH.service.CalendarAPI</key>
+     <type>org.exoplatform.codefestH.service.mock.CalendarAPIimpl</type>
+  </component>
+  <component>
+     <key>org.exoplatform.codefestH.service.Meeting</key>
+     <type>org.exoplatform.codefestH.service.mock.Meetingimpl</type>
+  </component>
+    <component>
+     <key>org.exoplatform.codefestH.service.MeetingComment</key>
+     <type>org.exoplatform.codefestH.service.mock.MeetingCommentimpl</type>
+  </component>
+    <component>
+     <key>org.exoplatform.codefestH.service.MeetingRoom</key>
+     <type>org.exoplatform.codefestH.service.mock.MeetingRoomimpl</type>
+  </component>
+      <component>
+     <key>org.exoplatform.codefestH.service.TimeRange</key>
+     <type>org.exoplatform.codefestH.service.mock.TimeRangeimpl</type>
+  </component>
+
+</configuration>

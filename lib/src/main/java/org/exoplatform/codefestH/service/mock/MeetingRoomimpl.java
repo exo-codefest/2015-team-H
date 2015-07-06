@@ -14,9 +14,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.test;
+package org.exoplatform.codefestH.service.mock;
 
-import org.exoplatform.codefestH.service.CalendarAPI;
+import java.util.Date;
+import java.util.List;
+
+import org.exoplatform.codefestH.service.Meeting;
+import org.exoplatform.codefestH.service.MeetingRoom;
+import org.exoplatform.codefestH.service.TimeRange;
 
 /**
  * Created by The eXo Platform SAS
@@ -24,16 +29,30 @@ import org.exoplatform.codefestH.service.CalendarAPI;
  *          exo@exoplatform.com
  * Jul 6, 2015  
  */
-public class TestCalendarAPI extends BaseTest{
-  
-  public void testCreateEvent(){    
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.createEvent(null);
-    
+public class MeetingRoomimpl implements MeetingRoom {
+
+  @Override
+  public String getName() {
+    // TODO Auto-generated method stub
+    return null;
   }
-  
-  public void testRemoveEvent(){
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.removeEvent(null);
+
+  @Override
+  public List<Meeting> getMeetings() {
+    // TODO Auto-generated method stub
+    return null;
   }
+
+  @Override
+  public List<TimeRange> getBusyTime(Date fromTime) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public boolean addMeeting(Meeting meeting) {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
 }
