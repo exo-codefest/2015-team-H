@@ -8,9 +8,9 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfig(
         lifecycle = UIApplicationLifecycle.class,
-        template = "app:/groovy/createmeeting/webui/component/CreateMeetingPortlet.gtmpl")
-public class CreateMeetingPortlet extends UIPortletApplication {
-  public CreateMeetingPortlet() throws Exception {
+        template = "app:/groovy/meeting/webui/component/MeetingPortlet.gtmpl")
+public class MeetingPortlet extends UIPortletApplication {
+  public MeetingPortlet() throws Exception {
 
   }
 

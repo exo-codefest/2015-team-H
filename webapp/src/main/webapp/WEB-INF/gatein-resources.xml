@@ -5,7 +5,7 @@
 
     <portlet-skin>
         <application-name>team-h-addon-webapp</application-name>
-        <portlet-name>CreateMeetingPortlet</portlet-name>
+        <portlet-name>MeetingPortlet</portlet-name>
         <skin-name>Default</skin-name>
         <css-path>/css/style.css</css-path>
     </portlet-skin>

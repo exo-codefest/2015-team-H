@@ -31,7 +31,7 @@
     <portlet-application>
       <portlet>
         <application-ref>team-h-addon-webapp</application-ref>
-        <portlet-ref>CreateMeetingPortlet</portlet-ref>
+        <portlet-ref>MeetingPortlet</portlet-ref>
       </portlet>
       <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
