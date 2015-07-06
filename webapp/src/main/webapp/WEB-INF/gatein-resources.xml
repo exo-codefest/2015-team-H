@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+                  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
+
+    <portlet-skin>
+        <application-name>team-h-addon-webapp</application-name>
+        <portlet-name>CreateEventPortlet</portlet-name>
+        <skin-name>Default</skin-name>
+        <css-path>/css/style.css</css-path>
+    </portlet-skin>
+
+</gatein-resources>
