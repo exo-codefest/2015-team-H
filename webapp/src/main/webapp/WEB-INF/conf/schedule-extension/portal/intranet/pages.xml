@@ -30,8 +30,8 @@
     <show-max-window>false</show-max-window>
     <portlet-application>
       <portlet>
-        <application-ref>meeting</application-ref>
-        <portlet-ref>MeetingApplication</portlet-ref>
+        <application-ref>team-h-addon-webapp</application-ref>
+        <portlet-ref>CreateMeetingPortlet</portlet-ref>
       </portlet>
       <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
