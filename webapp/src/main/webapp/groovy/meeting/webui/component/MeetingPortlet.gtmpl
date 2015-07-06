@@ -1,4 +1,4 @@
-<div class="uiBox create-schedule-portlet">
+<div class="uiBox schedule-portlet">
 	<div class="uiContentBox">
 		<form action="" method="post" class="create-schedule">
 			<fieldset>
@@ -69,5 +69,55 @@
 					</div>
 			</fieldset>
 		</form>
+	</div>
+</div>
+
+<!-- this is detail schedule-->
+
+
+<div class="uiBox schedule-portlet">
+	<div class="uiContentBox">
+		<div class="top-detail-schedule">
+			<div class="media ">
+			    <div class="pull-left ">
+			        <a href="javascript:void(0);" title="Welcome to your new Social Intranet!">
+			          <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Welcome to your new Social Intranet!">
+			        </a>
+			    </div>
+			    <div class="media-body">
+			    	<h4>Sprint Meeting </h4>
+					<div class="action">
+						<a class="status" href="javascript:void(0)" data-original-title="Close Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconValidate"></i>Poll closed </a>
+						<a class="edit" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
+						<a class="user" href="javascript:void(0)" ><i class="uiIconUser"></i> 1</a>
+
+						<a class="calendar-view" href="javascript:void(0)" data-original-title="Calendar View" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconWatch"> </i> Canlendar View</a>
+						<a class="time" href="javascript:void(0)"><i class="uiIconClock"></i> 
+less than a minute ago
+</a>
+					</div>
+					<div class="localtion">Where: <a href="">Ha Noi</a></div>
+					<div class="description">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione, libero reprehenderit nulla, iusto, repellendus non debitis deserunt voluptatum consequuntur, similique laborum. Aliquid, consectetur, id? Commodi ducimus optio sed repellendus!</div>
+
+			    </div>
+			  </div>
+		</div>
+		<div class="bottom-detail-schedule">
+			<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#"> Table view</a></li>
+					<li><a href="#">Administration</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active">
+						
+					</div>
+				</div>
+			</div>
+			
+
+
+
+		</div>
 	</div>
 </div>
