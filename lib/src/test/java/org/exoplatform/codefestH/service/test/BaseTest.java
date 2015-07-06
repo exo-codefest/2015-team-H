@@ -14,26 +14,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.test;
 
-import org.exoplatform.codefestH.service.CalendarAPI;
+package org.exoplatform.codefestH.service.test;
+import org.exoplatform.commons.testing.BaseExoTestCase;
+import org.exoplatform.component.test.ConfigurationUnit;
+import org.exoplatform.component.test.ConfiguredBy;
+import org.exoplatform.component.test.ContainerScope;
+
+//import org.exoplatform.container.StandaloneContainer;
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Jul 6, 2015  
+ * Jun 25, 2015  
  */
-public class TestCalendarAPI extends BaseTest{
-  
-  public void testCreateEvent(){    
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.createEvent(null);
-    
+@ConfiguredBy({
+@ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/standalone/configuration.xml")
+})
+public abstract class BaseTest extends BaseExoTestCase{
+  protected void setUp(){
+
   }
-  
-  public void testRemoveEvent(){
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.removeEvent(null);
+  protected void tearDown() throws Exception {
+
+  }
+  public <T> T getService(Class<T> clazz) {
+    return (T) getContainer().getComponentInstanceOfType(clazz);
   }
 }

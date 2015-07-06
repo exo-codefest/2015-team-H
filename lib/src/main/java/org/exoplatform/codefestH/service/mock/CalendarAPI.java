@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.test;
+package org.exoplatform.codefestH.service.mock;
 
-import org.exoplatform.codefestH.service.CalendarAPI;
+import org.exoplatform.codefestH.service.Meeting;
 
 /**
  * Created by The eXo Platform SAS
@@ -24,16 +24,16 @@ import org.exoplatform.codefestH.service.CalendarAPI;
  *          exo@exoplatform.com
  * Jul 6, 2015  
  */
-public class TestCalendarAPI extends BaseTest{
-  
-  public void testCreateEvent(){    
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.createEvent(null);
-    
+public class CalendarAPI implements org.exoplatform.codefestH.service.CalendarAPI {
+
+  @Override
+  public void createEvent(Meeting meeting) {
+    System.out.println("Created Event");
   }
-  
-  public void testRemoveEvent(){
-    CalendarAPI test = getService(CalendarAPI.class);
-    test.removeEvent(null);
+
+  @Override
+  public void removeEvent(Meeting meeting) {
+    System.out.println("Removed Event");
   }
+
 }

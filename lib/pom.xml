@@ -43,5 +43,10 @@
           <groupId>org.exoplatform.jcr</groupId>
           <artifactId>exo.jcr.component.core</artifactId>
           </dependency>
+        <dependency>
+          <groupId>org.exoplatform.commons</groupId>
+          <artifactId>commons-testing</artifactId>
+          <version>4.3.x-commons-wiki-on-mysql-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
