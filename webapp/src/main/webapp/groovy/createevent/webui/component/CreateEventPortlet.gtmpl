@@ -1,0 +1,60 @@
+<div class="uiBox create-schedule-portlet">
+	<div class="uiContentBox">
+		<form action="" method="post" class="create-schedule">
+			<fieldset>
+				<legend>Schedule an event</legend>
+				<div class="control-group">
+					<ul class="breadcrumb"> 
+						<li class="active"><a href="">1. General</a>        
+						 <span class="uiIconMiniArrowRight">&nbsp;</span>         
+						</li>
+						<li class="">     
+						 <a>2. Time proposals</a>  
+						<span class="uiIconMiniArrowRight">&nbsp;</span>			 
+						</li>
+						<li class="">     
+						 <a>3. Settings</a><span class="uiIconMiniArrowRight">&nbsp;</span>         
+						</li>
+						<li class="">     
+						 <a>4. Invite</a>         
+						</li>
+					</ul>
+				</div>
+				<br/>					
+				<div class="row">
+					<div class="span2">
+						<span class="create-schedule-icon"></span>
+					</div>
+					<div class="span10">
+						<div class="control-group">
+							<label for="title">Title</label>
+							<input type="text" id="title">       
+						</div>
+						<div class="control-group">
+							<label for="location">Location<span class="muted"> (optional)</span> </label>
+							<input type="text" id="location">       
+						</div>
+						<div class="control-group">
+							<label for="description">Description<span class="muted"> (optional)</span></label>
+							<textarea rows="10" name="description" id="description" cols="50" class="form-control"></textarea>    
+						</div>
+						<div class="control-group">
+							<label for="initiatorAlias">Your name</label>
+							<input type="text" id="initiatorAlias">   
+						</div>
+						<div class="control-group">
+							<label for="initiatorEmail">E-mail address</label>
+							<input type="text" id="initiatorEmail"> 
+							<p class="help-block muted">You will receive the link to administer your poll at the address.</p>			
+						</div>
+						<div class="control-group">
+							<button class="btn btn-primary" type="submit">Submit</button>
+							<button class="btn" type="submit">Cancel</button>
+						</div>
+						 
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
