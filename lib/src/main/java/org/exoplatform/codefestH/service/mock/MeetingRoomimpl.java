@@ -16,7 +16,12 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
+import java.util.Date;
+import java.util.List;
+
 import org.exoplatform.codefestH.service.Meeting;
+import org.exoplatform.codefestH.service.MeetingRoom;
+import org.exoplatform.codefestH.service.TimeRange;
 
 /**
  * Created by The eXo Platform SAS
@@ -24,16 +29,30 @@ import org.exoplatform.codefestH.service.Meeting;
  *          exo@exoplatform.com
  * Jul 6, 2015  
  */
-public class CalendarAPI implements org.exoplatform.codefestH.service.CalendarAPI {
+public class MeetingRoomimpl implements MeetingRoom {
 
   @Override
-  public void createEvent(Meeting meeting) {
-    System.out.println("Created Event");
+  public String getName() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
   @Override
-  public void removeEvent(Meeting meeting) {
-    System.out.println("Removed Event");
+  public List<Meeting> getMeetings() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public List<TimeRange> getBusyTime(Date fromTime) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public boolean addMeeting(Meeting meeting) {
+    // TODO Auto-generated method stub
+    return false;
   }
 
 }
