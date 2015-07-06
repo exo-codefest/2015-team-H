@@ -27,10 +27,24 @@ import org.exoplatform.codefestH.service.Meeting;
  */
 public class CalendarAPIimpl implements CalendarAPI{
 
+  /**
+   * {@inheritDoc}}
+   */
   @Override
   public void createEvent(Meeting meeting) {
     // TODO Auto-generated method stub
     
   }
+
+  /**
+   * {@inheritDoc}}
+   */
+  @Override
+  public void removeEvent(Meeting meeting) {
+    // TODO Auto-generated method stub
+    
+  }
+
+
 
 }

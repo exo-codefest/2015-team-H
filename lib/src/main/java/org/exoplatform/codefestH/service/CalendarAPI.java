@@ -23,5 +23,15 @@ package org.exoplatform.codefestH.service;
  * Jul 6, 2015  
  */
 public interface CalendarAPI {
+  /**
+   * Create Event when close a meeting
+   * @param meeting
+   */
   public void createEvent(Meeting meeting);
+  
+  /**
+   * Remove Event of calendar when reopen a meeting
+   * @param meeting
+   */
+  public void removeEvent(Meeting meeting);
 }

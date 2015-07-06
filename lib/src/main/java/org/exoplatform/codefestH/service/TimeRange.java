@@ -28,14 +28,65 @@ import javax.jcr.Node;
  * Jul 6, 2015  
  */
 public interface TimeRange {
-  public Node getTimeRangeNode();
-  public boolean setTimeRangeNode(Node timeRangeNode);
+  /**
+   * Get path of JCR Node store data of Time Range
+   * @return
+   */
+  public String getTimeRangeNodePath();
+  
+  /**
+   * Set path of JCR Node store data of Time Range
+   * @param timeRangeNodePath
+   * @return
+   */
+  public boolean setTimeRangeNode(String timeRangeNodePath);
+  
+  /**
+   * get Start of Time Range
+   * @return
+   */
   public Date getBegin();
+  
+  /**
+   * Set Start of Time Range
+   * @param date
+   */
   public void setBegin(Date date);
+  
+  /**
+   * get End of Time Range
+   * @return
+   */
   public Date getEnd();
+  
+  /**
+   * Set End of Time Range
+   * @param date
+   */
   public void setEnd(Date date);
+  
+  /**
+   * Get list user vote for this Time range
+   * @return
+   */
   public List<String> getWhoVote();
+  
+  /**
+   * Add vote for this Time Range
+   * @param username user vote for this Time Range
+   */
   public void addVote(String username);
+  
+  /**
+   * Remove vote of user for this Time Range
+   * @param username
+   */
   public void removeVote(String username);
+  
+  /**
+   * Check conflict with other Time Range
+   * @param range
+   * @return
+   */
   public boolean isConflict(TimeRange range);
 }

@@ -25,10 +25,39 @@ import javax.jcr.Node;
  * Jul 6, 2015  
  */
 public interface MeetingComment {
-  public Node getMeetingCommentNode();
-  public boolean setMeetingCommentNode(Node meetingCommentNode);
+  /**
+   * Get path of JCR Node store data of comment
+   * @return
+   */
+  public String getMeetingCommentNodePath();
+  /**
+   * Set path of JCR Node store data of comment
+   * @param meetingCommentNodePath
+   * @return
+   */
+  public boolean setMeetingCommentNodePath(String meetingCommentNodePath);
+  
+  /**
+   * Get owner of comment
+   * @return
+   */
   public String getCommentOwner();
+  /**
+   * Set owner of comment
+   * @param username
+   */
   public void setCommentOwner(String username);
+  
+  /**
+   * Get data of comment
+   * @return
+   */
   public String getComment();
+  
+  /**
+   * Set data of comment
+   * @param comment
+   * @return
+   */
   public String setComment(String comment);
 }

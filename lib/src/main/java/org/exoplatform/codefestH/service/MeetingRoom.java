@@ -26,8 +26,30 @@ import java.util.List;
  * Jul 6, 2015  
  */
 public interface MeetingRoom {
+  /**
+   * Get name of Meeting Room
+   * @return
+   */
   public String getName();
+  
+  /**
+   * Get list Meeting at Meeting room 
+   * @return
+   */
   public List<Meeting> getMeetings();
+  
+  /**
+   * Get busy time of Meeting Room from specific moment
+   * @param fromTime
+   * @return
+   */
   public List<TimeRange> getBusyTime(Date fromTime);
+  
+  /**
+   * Add one meeting to Meeting room, if schedule of meeting conflict with other meeting, 
+   * this action cannot perform
+   * @param meeting
+   * @return false if conflict with other meeting
+   */
   public boolean addMeeting(Meeting meeting);
 }
