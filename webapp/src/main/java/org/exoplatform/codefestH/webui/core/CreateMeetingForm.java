@@ -21,6 +21,7 @@ import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.NumberRangeValidator;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,17 +58,20 @@ public class CreateMeetingForm extends UIForm {
     this.addUIFormInput(descriptionTextArea);
 
     UIFormDateTimeInput dateTextBox = new UIFormDateTimeInput(FIELD_DATE_TEXT_BOX, FIELD_DATE_TEXT_BOX, null);
+    dateTextBox.setDisplayTime(false);
+    dateTextBox.setReadOnly(true);
     this.addUIFormInput(dateTextBox);
 
     UIFormMultiValueInputSet uiFormMValue =
             createUIComponent(UIFormMultiValueInputSet.class, null, FIELD_TIME_TEXT_BOX);
-    this.addUIFormInput(uiFormMValue);
     uiFormMValue.setType(UIFormStringInput.class);
     List<String> values = new ArrayList<String>();
     values.add(StringUtils.EMPTY);
     values.add(StringUtils.EMPTY);
     values.add(StringUtils.EMPTY);
     uiFormMValue.setValue(values);
+    uiFormMValue.addValidator(Time24Validator.class);
+    this.addUIFormInput(uiFormMValue);
 
     UIFormStringInput participantsTextBox = new UIFormStringInput(FIELD_PARTICIPANTS_TEXT_BOX,
             FIELD_PARTICIPANTS_TEXT_BOX, null);
