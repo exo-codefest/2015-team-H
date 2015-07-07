@@ -10,4 +10,25 @@
         <css-path>/css/style.css</css-path>
     </portlet-skin>
 
+  <portlet>
+    <name>MeetingPortlet</name>
+    <module>
+      <depends>
+        <module>base</module>
+      </depends>
+      <depends>
+        <module>portalControl</module>
+      </depends>
+      <depends>
+        <module>webui-ext</module>
+      </depends>
+      <depends>
+        <module>ecm-utils</module>
+      </depends>
+      <depends>
+        <module>wcm-utils</module>
+      </depends>
+    </module>
+  </portlet>
+
 </gatein-resources>

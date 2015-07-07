@@ -1,42 +1,42 @@
 .schedule-portlet {
-	margin: 15px;
+    margin: 15px;
 }
 .schedule-portlet legend {
-	 font-weight: bold;
+     font-weight: bold;
     line-height: 100%;
     padding-bottom: 15px;
 }
 .create-schedule-portlet {
-	margin: 15px;
+    margin: 15px;
 }
 
 .time-section > .pull-left {
-		 width: 80px;
-		margin-right: 15px;
+         width: 80px;
+        margin-right: 15px;
 }
 .time-section > .pull-left input{
-		width: 100%;
+        width: 100%;
 }
 
 .section-input {
-	margin-left: 50px;
+    margin-left: 12%;
 }
 
 .top-detail-schedule .pull-left img {
     max-width: 125px;
 }
 .top-detail-schedule .action a {
-	display: inline-block;
+    display: inline-block;
        margin-right: 10px;
     padding-right: 10px;
     position: relative;
 }
 .top-detail-schedule h4 {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 .top-detail-schedule .action,.localtion {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .top-detail-schedule .action a:after {
     background: #999 none repeat scroll 0 0;
@@ -48,10 +48,22 @@
     top: 6px;
     width: 1px;
 }
-.top-detail-schedule .action a.time:after {
-	display: none;
+.top-detail-schedule .action a.time-publish:after {
+    display: none;
 }
 
 .top-detail-schedule {
     margin-bottom: 20px;
+}
+
+.section-input .control-group input{
+    margin-bottom: 0;
+}
+
+.section-input .control-group .multiValueContainer input ,.section-input .control-group .multiValueContainer .actionIcon{
+    margin-bottom: 10px;
+}
+
+.section-input textarea {
+    height: 114px;
 }

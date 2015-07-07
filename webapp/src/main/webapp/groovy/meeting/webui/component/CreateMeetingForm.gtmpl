@@ -1,64 +1,77 @@
+<div class="UIForm uiCreateMeetingForm">
+
+<%uiform.begin()%>
+
 <div class="uiBox schedule-portlet">
 	<div class="uiContentBox">
-		<form action="" method="post" class="create-schedule">
 			<fieldset>
 				<legend>Schedule a meeting</legend>
 				<div class="section-input">
-					<div class="row">
+					<div class="row-fluid">
 						<div class="span6">
 							<div class="control-group">
-								<label for="title">Title</label>
-								<input type="text" id="title">
+								<label for="<%=uiform.FIELD_TITLE_TEXT_BOX%>">Title</label>
+								<% uiform.renderChild(uiform.FIELD_TITLE_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="location">Location<span class="muted"> (optional)</span> </label>
-								<input type="text" id="location">
+								<label for="<%=uiform.FIELD_LOCATION_TEXT_BOX%>">Location<span class="muted"> ( optional )</span> </label>
+								<% uiform.renderChild(uiform.FIELD_LOCATION_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="description">Description<span class="muted"> (optional)</span></label>
-								<textarea rows="10" name="description" id="description" cols="50" class="form-control"></textarea>
+								<label for="<%=uiform.FIELD_DESCRIPTION_TEXT_AREA%>">Description<span class="muted"> ( optional )</span></label>
+								<% uiform.renderChild(uiform.FIELD_DESCRIPTION_TEXT_AREA)%>
 							</div>
 						</div>
 						<div class="span6">
 							<div class="control-group">
-								<label for="date">Date Proposals</label>
-								<input type="text" id="date">
+								<label for="<%=uiform.FIELD_DATE_TEXT_BOX%>">Date Proposals</label>
+								<% uiform.renderChild(uiform.FIELD_DATE_TEXT_BOX)%>
 							</div>
 
-							<div class="control-group time-section clearfix">
-								<div class="pull-left">
-									<label for="time1">Time 1</label>
-									<input type="text" id="time1">
-								</div>
-								<div class="pull-left">
-									<label for="time2">Time 2</label>
-									<input type="text" id="time2">
-								</div>
-								<div class="pull-left">
-									<label for="time3">Time 3</label>
-									<input type="text" id="time3">
+							<div class="control-group time-section ">
+								<div class="UIFormMultiValueInputSet clearfix">
+									<label for="<%=uiform.FIELD_TIME1_TEXT_BOX%>">Time  <span class="muted">( time 24 )</span></label>
+									<div class="multiValueContainer">
+										<% uiform.renderChild(uiform.FIELD_TIME1_TEXT_BOX)%>
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+									</div>
+									<div class="multiValueContainer">
+										<% uiform.renderChild(uiform.FIELD_TIME2_TEXT_BOX)%>
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+									</div>
+									<div class="multiValueContainer">
+										<% uiform.renderChild(uiform.FIELD_TIME3_TEXT_BOX)%>
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+										<a data-placement="bottom" rel="tooltip" alt="Add Item"  class="actionIcon" data-original-title="Add Item"><i class="uiIconAddIcon uiIconLightGray"></i></a>
+
+									</div>
+
 								</div>
 							</div>
 							<div class="control-group ">
-								<label for="participants">Invite participants</label>
-								<div class="blastInputPeople">
+								<label for="<%=uiform.FIELD_PARTICIPANTS_TEXT_BOX%>">Invite participants</label>
+								<% uiform.renderChild(uiform.FIELD_PARTICIPANTS_TEXT_BOX)%>
+								<a data-placement="bottom" rel="tooltip" href="<%=uiform.event('SelectMember')%>" class="actionIcon" data-original-title="Select User">
+			<i class="uiIconUser uiIconLightGray"></i>
+		</a>
+								<!-- <div class="blastInputPeople">
 									<textarea title="What are you working on?" cols="30" rows="10" id="composerInput" name="composerInput" class="textarea" style="visibility: hidden; display: none;"></textarea>
 									<div class="exo-mentions" style="width: 270px;">
 										<div contenteditable="true" class="replaceTextArea editable" g_editable="true" id="DisplaycomposerInput" data-mentions="true" style="min-height:68px;margin-bottom: 10px;
-    " tabindex="667">
+								    " tabindex="667">
 											<span contenteditable="false">Root Root<i contenteditable="true" class="uiIconClose uiIconLightGray">x</i></span>
 										</div>
-
+								
 										<div class="autocomplete-menu" style="display: block;">
 											<ul style="display: block;">
 												<li data-display="Root Root" data-ref-type="contact" data-ref-id="@root" class="data" data-uid="mention_7"><div class="avatarSmall"><img src="/eXoSkin/skin/images/system/UserAvtDefault.png"></div><strong>R</strong>oot <strong>R</strong>oot (root)</li>
-
+								
 												<li data-display="trung nguyen thanh" data-ref-type="contact" data-ref-id="@trung" class="data active" data-uid="mention_8"><div class="avatarSmall"><img src="/eXoSkin/skin/images/system/UserAvtDefault.png"></div>t<strong>r</strong>ung nguyen thanh (trung)</li>
 											</ul>
 										</div>
 									</div>
-								</div>
-								<p class="muted">Ex: "@ro" or "@Ro Br" to search Robert Bruce</p>
+								</div> -->
+								<!-- <p class="muted">Ex: "@ro" or "@Ro Br" to search Robert Bruce</p> -->
 							</div>
 						</div>
 					</div>
@@ -68,9 +81,9 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
 	</div>
 </div>
+<%uiform.end()%>
 
 <!-- this is detail schedule-->
 
@@ -87,12 +100,12 @@
 				<div class="media-body">
 					<h4>Sprint Meeting </h4>
 					<div class="action">
-						<a class="status" href="javascript:void(0)" data-original-title="Close Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconValidate"></i>Poll closed </a>
+						<a class="status" href="javascript:void(0)" data-original-title="Close Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconValidate"></i> Poll closed </a>
 						<a class="edit" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
 						<a class="user" href="javascript:void(0)" ><i class="uiIconUser"></i> 1</a>
-
+						<a class="user" href="javascript:void(0)" ><i class="uiIconComment"></i> 3</a>
 						<a class="calendar-view" href="javascript:void(0)" data-original-title="Calendar View" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconWatch"> </i> Canlendar View</a>
-						<a class="time" href="javascript:void(0)"><i class="uiIconClock"></i>
+						<a class="time-publish" href="javascript:void(0)"><i class="uiIconClock"></i>
 							less than a minute ago
 						</a>
 					</div>
@@ -104,19 +117,27 @@
 		</div>
 		<div class="bottom-detail-schedule">
 			<div class="uiTabNormal uiTabInPage">
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#"> Table view</a></li>
-					<li><a href="#">Administration</a></li>
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+					<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane active">
-
+					<div class="tab-pane active" id="table-view">
+						tab view
+					</div>
+					<div class="tab-pane" id="administration-view">
+						admin view
 					</div>
 				</div>
 			</div>
 
-
-
+			<script type="text/javascript">
+		    jQuery('#myTab a').click(function (e) {
+		      e.preventDefault();
+		     jQuery(this).tab('show');
+		    })
+			</script>
+		
 
 		</div>
 	</div>
