@@ -28,6 +28,5 @@
   <import>classpath:/conf/standalone/jcr-configuration.xml</import>
   <import>classpath:/conf/standalone/organization-configuration.xml</import>
   <import>classpath:/conf/standalone/components-configuration.xml</import>
-  <import>classpath:/conf/standalone/repository-configuration.xml</import>
 
 </configuration>

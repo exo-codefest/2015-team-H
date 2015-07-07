@@ -70,7 +70,6 @@ public class CalendarAPIimpl implements CalendarAPI{
     // TODO Auto-generated method stub
     
   }
-
   private CalendarEvent wrapMeetingToEvent(Meeting meeting, String calendarId){
     CalendarEvent event = new CalendarEvent();
     event.setDescription(meeting.getDescription());
@@ -81,7 +80,6 @@ public class CalendarAPIimpl implements CalendarAPI{
     event.setParticipant(participants);
     event.setCalendarId(calendarId);
     event.setToDateTime(meeting.getFinalTime().getEnd());
-
     return event;
   }
 

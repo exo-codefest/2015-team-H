@@ -45,9 +45,11 @@
           </dependency>
         <dependency>
           <groupId>org.exoplatform.commons</groupId>
-          <artifactId>commons-testing</artifactId>          
+
+          <artifactId>commons-testing</artifactId>
         </dependency>
-        <dependency>
+            <dependency>
+
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
       <scope>test</scope>

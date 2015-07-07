@@ -16,6 +16,9 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
+
+import java.util.List;
+
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
 
@@ -62,6 +65,7 @@ public class MeetingServiceimpl implements MeetingService {
 
   @Override
   public List<Meeting> getAllMeeting() {
+
     // TODO Auto-generated method stub
     return null;
   }
@@ -88,6 +92,7 @@ public class MeetingServiceimpl implements MeetingService {
   public List<String> getParticipants(String meetingID) {
     // TODO Auto-generated method stub
     return null;
+
   }
 
 

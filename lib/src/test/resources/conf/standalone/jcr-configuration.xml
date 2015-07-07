@@ -13,7 +13,7 @@
       <value-param>
         <name>conf-path</name>
         <description>JCR configuration file</description>
-        <value>jar:/conf/standalone/repository-configuration.xml</value>
+        <value>classpath:/conf/standalone/repository-configuration.xml</value>
       </value-param>
       <properties-param>
         <name>working-conf</name>
@@ -67,7 +67,7 @@
         <values-param>
           <name>autoCreatedInNewRepository</name>
           <description>Node types configuration file</description>
-          <value>jar:/conf/standalone/nodetypes-configuration.xml</value>
+          <value>classpath:/conf/standalone/nodetypes-configuration.xml</value>
         </values-param>
       </init-params>
     </component-plugin>

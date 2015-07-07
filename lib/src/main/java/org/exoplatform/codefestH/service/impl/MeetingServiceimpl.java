@@ -17,16 +17,16 @@
 package org.exoplatform.codefestH.service.impl;
 
 import java.util.ArrayList;
+
 import java.util.Date;
+
 import java.util.List;
-import java.util.UUID;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
 import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
@@ -34,16 +34,15 @@ import javax.jcr.version.VersionException;
 
 import org.exoplatform.codefestH.service.CalendarAPI;
 import org.exoplatform.codefestH.service.Meeting;
-import org.exoplatform.codefestH.service.MeetingComment;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.Referenceable;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.app.SessionProviderService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
-import org.exoplatform.services.jcr.impl.core.NodeImpl;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+
 
 /**
  * Created by The eXo Platform SAS
@@ -53,6 +52,7 @@ import org.exoplatform.services.log.Log;
  */
 public class MeetingServiceimpl implements MeetingService {
 
+  private static final String MEETING_TYPE = "teamH:meeting";
   private final String TITLE = "mt:title";
   private final String DESCRIPTION = "mt:description";
   private final String OWNER = "mt:creator";
@@ -88,6 +88,7 @@ public class MeetingServiceimpl implements MeetingService {
     }
   }
   private Session getSession() throws Exception {
+    
     ManageableRepository repository = repoService.getRepository(this.repo);
     SessionProvider sessionProvider = sessionProviderService.getSystemSessionProvider(null);
     Session session = sessionProvider.getSession(this.ws, repository);
@@ -136,7 +137,7 @@ public class MeetingServiceimpl implements MeetingService {
       Node meetingNode = meetingRoot.getNode(meeting.getID());
       if(meetingNode == null) {
         //create new
-        meetingNode = meetingRoot.addNode(meeting.getID());
+        meetingNode = meetingRoot.addNode(meeting.getID(),MEETING_TYPE);
       } 
       wrapMeetingToNode(meeting, meetingNode);
       meetingNode.save();
@@ -158,6 +159,7 @@ public class MeetingServiceimpl implements MeetingService {
     }
     return result;
   }
+  
 
   @Override
   public List<Meeting> getAllMeeting() {
@@ -239,19 +241,14 @@ public class MeetingServiceimpl implements MeetingService {
     if(m.getTimeSlot() != null)
       n.setProperty(TIME_SLOT,getIDToString(m.getTimeSlot()));
     } catch (ValueFormatException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (VersionException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (LockException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (ConstraintViolationException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (RepositoryException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
@@ -260,6 +257,7 @@ public class MeetingServiceimpl implements MeetingService {
     for(T p : list) result.append(p.getID() + ",");      
     return result.toString();
   }
+
   @Override
   public List<String> getParticipants(String meetingID) {
     

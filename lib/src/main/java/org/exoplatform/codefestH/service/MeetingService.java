@@ -36,10 +36,10 @@ public interface MeetingService {
   public List<Meeting> getMeetingByOwner(String username);
   public List<Meeting> getMeetingByParticipant(String username);
 
-
-  public List<Meeting> getAllMeeting();
+  public List<String> getParticipants(String meetingID);
+  public boolean addParticipant(String meetingID, String username);
+  public boolean removeParticipant(String meetingID, String username);
+  List<Meeting> getAllMeeting();
   boolean setMeetingClose(String meetingID);
-  boolean removeParticipant(String meetingID, String username);
-  boolean addParticipant(String meetingID, String username);
-  List<String> getParticipants(String meetingID);
+
 }

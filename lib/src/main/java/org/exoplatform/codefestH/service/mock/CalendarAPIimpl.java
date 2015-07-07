@@ -29,8 +29,8 @@ public class CalendarAPIimpl implements CalendarAPI {
 
   @Override
   public boolean createEvent(Meeting meeting) {
-    // TODO Auto-generated method stub
-    return false;
+    System.out.println("Created Event");
+    return true;
   }
 
   @Override
