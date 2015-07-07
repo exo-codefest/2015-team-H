@@ -7,37 +7,37 @@
 					<div class="row-fluid">
 						<div class="span6">
 							<div class="control-group">
-								<label for="title">Title</label>
-								<input type="text" id="title">
+								<label for="<%=uicomponent.FIELD_TITLE_TEXT_BOX%>">Title</label>
+								<% uicomponent.renderChild(uicomponent.FIELD_TITLE_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="location">Location<span class="muted"> ( optional )</span> </label>
-								<input type="text" id="location">
+								<label for="<%=uicomponent.FIELD_LOCATION_TEXT_BOX%>">Location<span class="muted"> ( optional )</span> </label>
+								<% uicomponent.renderChild(uicomponent.FIELD_LOCATION_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="description">Description<span class="muted"> ( optional )</span></label>
-								<textarea rows="10" name="description" id="description" cols="50" class="form-control"></textarea>
+								<label for="<%=uicomponent.FIELD_DESCRIPTION_TEXT_AREA%>">Description<span class="muted"> ( optional )</span></label>
+								<% uicomponent.renderChild(uicomponent.FIELD_DESCRIPTION_TEXT_AREA)%>
 							</div>
 						</div>
 						<div class="span6">
 							<div class="control-group">
-								<label for="date">Date Proposals</label>
-								<input type="text" id="date">
+								<label for="<%=uicomponent.FIELD_DATE_TEXT_BOX%>">Date Proposals</label>
+								<% uicomponent.renderChild(uicomponent.FIELD_DATE_TEXT_BOX)%>
 							</div>
 
 							<div class="control-group time-section ">
 								<div class="UIFormMultiValueInputSet clearfix">
-									<label for="time1">Time  <span class="muted">( time 24 )</span></label>
-									<div class="multiValueContainer">									
-										<input type="text" id="time1">
+									<label for="<%=uicomponent.FIELD_TIME1_TEXT_BOX%>">Time  <span class="muted">( time 24 )</span></label>
+									<div class="multiValueContainer">
+										<% uicomponent.renderChild(uicomponent.FIELD_TIME1_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 									</div>
-									<div class="multiValueContainer">									
-										<input type="text" id="time1">
+									<div class="multiValueContainer">
+										<% uicomponent.renderChild(uicomponent.FIELD_TIME2_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 									</div>
-									<div class="multiValueContainer">									
-										<input type="text" id="time1">
+									<div class="multiValueContainer">
+										<% uicomponent.renderChild(uicomponent.FIELD_TIME3_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 										<a data-placement="bottom" rel="tooltip" alt="Add Item"  class="actionIcon" data-original-title="Add Item"><i class="uiIconAddIcon uiIconLightGray"></i></a>
 
@@ -46,8 +46,8 @@
 								</div>
 							</div>
 							<div class="control-group ">
-								<label for="participants">Invite participants</label>
-								<input type="text" placeholder="Select Owner" value="root" id="UIPermissionInput" name="UIPermissionInput">
+								<label for="<%=uicomponent.FIELD_PARTICIPANTS_TEXT_BOX%>">Invite participants</label>
+								<% uicomponent.renderChild(uicomponent.FIELD_PARTICIPANTS_TEXT_BOX)%>
 								<a data-placement="bottom" rel="tooltip" href="javascript:void(0)" class="actionIcon" data-original-title="Select User">
 			<i class="uiIconUser uiIconLightGray"></i>
 		</a>
