@@ -90,13 +90,13 @@
       </propertyDefinition>
       <!-- Location of a meeting -->
       <propertyDefinition name="mt:location"
-        requiredType="teamH:meetingroom" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />
       </propertyDefinition>
       <!-- Comment of a meeting -->
       <propertyDefinition name="mt:comment"
-        requiredType="teamH:meetingcomment" autoCreated="false"
+        requiredType="String" autoCreated="false"
         mandatory="false" onParentVersion="COPY" protected="false"
         multiple="true">
         <valueConstraints />
@@ -128,7 +128,7 @@
       </propertyDefinition>
       <!-- Time range provide for a meeting -->
       <propertyDefinition name="mt:timeslot"
-        requiredType="teamH:timerange" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="true">
         <valueConstraints />
       </propertyDefinition>
@@ -146,6 +146,12 @@
       </propertyDefinition>
       <!-- Hidden the answer - Only Owner can see the answers -->
       <propertyDefinition name="mt:hiddenAnswers"
+        requiredType="Boolean" autoCreated="false" mandatory="false"
+        onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+            <!-- Is closed -->
+      <propertyDefinition name="mt:status"
         requiredType="Boolean" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />

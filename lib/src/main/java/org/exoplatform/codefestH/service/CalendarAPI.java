@@ -29,7 +29,7 @@ public interface CalendarAPI {
    * Create Event when close a meeting
    * @param meeting
    */
-  public void createEvent(Meeting meeting);
+  public boolean createEvent(Meeting meeting);
   
   /**
    * Remove Event of calendar when reopen a meeting

@@ -28,13 +28,15 @@ import org.exoplatform.codefestH.service.Meeting;
 public class CalendarAPIimpl implements CalendarAPI {
 
   @Override
-  public void createEvent(Meeting meeting) {
-    System.out.println("Created Event");
+  public boolean createEvent(Meeting meeting) {
+    // TODO Auto-generated method stub
+    return false;
   }
 
   @Override
   public void removeEvent(Meeting meeting) {
-    System.out.println("Removed Event");
+    // TODO Auto-generated method stub
+    
   }
 
 }

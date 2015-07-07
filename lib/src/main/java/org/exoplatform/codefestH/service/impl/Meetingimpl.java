@@ -14,101 +14,125 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.mock;
+package org.exoplatform.codefestH.service.impl;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingComment;
 import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.TimeRange;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Jul 6, 2015  
+ * Jul 7, 2015  
  */
 public class Meetingimpl implements Meeting {
 
+
+  private Date creatTime;
+  private Date updateTime;
+  private String title;
+  private String description;
+  private String owner;
+  private List<String> participants;
+  private List<TimeRange> timeSlot;
+  private List<MeetingComment> comments;
+  private boolean status;
+  private TimeRange finalTime;
+  private MeetingRoom location;
+  private String id;
+
+  public Meetingimpl(String id, Date creatTime, Date updateTime, String title, String description, String owner, boolean status){
+    this.id = id;
+    this.creatTime = creatTime;
+    this.updateTime = updateTime;
+    this.title = title;
+    this.description = description;
+    this.owner = owner;
+    this.status = status;
+  }
   @Override
   public String getID() {
-    // TODO Auto-generated method stub
-    return null;
+    if(this.id.equals(""))
+      this.id = UUID.randomUUID().toString();
+    return this.id;
   }
+
 
   @Override
   public Date getCreateTime() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.creatTime;
   }
 
   @Override
   public Date getUpdateTime() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.updateTime;
   }
 
   @Override
   public String getTitle() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.title;
   }
 
   @Override
   public void setTitle(String title) {
-    // TODO Auto-generated method stub
-    
+    this.title = title;
+
   }
 
   @Override
   public String getDescription() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.description;
   }
 
   @Override
   public void setDescription(String description) {
-    // TODO Auto-generated method stub
-    
+    this.description = description;
   }
 
   @Override
   public String getOwner() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.owner;
   }
 
   @Override
   public List<String> getParticipants() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.participants;
+  }
+  
+  @Override
+  public void setParticipants(List<String> participants) {
+    this.participants = participants;
   }
 
   @Override
   public boolean addParticipants(String username) {
-    // TODO Auto-generated method stub
+    for(String user : participants)
+      if(user.equals(username)) return false;
+    this.participants.add(username);
     return false;
   }
 
   @Override
   public List<TimeRange> getTimeSlot() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.timeSlot;
   }
 
   @Override
   public List<MeetingComment> getComments() {
-    // TODO Auto-generated method stub
-    return null;
+    return this.comments;
   }
 
   @Override
   public boolean addComment(String username, String comment) {
-    // TODO Auto-generated method stub
-    return false;
+    MeetingComment cmt = new MeetingCommentimpl();
+    this.comments.add(cmt);
+    return true;
   }
 
   @Override
@@ -119,8 +143,8 @@ public class Meetingimpl implements Meeting {
 
   @Override
   public void setFinalTime(TimeRange time) {
-    // TODO Auto-generated method stub
-    
+    this.finalTime = time;
+
   }
 
   @Override
@@ -131,34 +155,27 @@ public class Meetingimpl implements Meeting {
 
   @Override
   public boolean isClose() {
-    // TODO Auto-generated method stub
-    return false;
+    return this.status;
   }
 
   @Override
   public boolean setClose(boolean status) {
-    // TODO Auto-generated method stub
-    return false;
+    // TODO dfdf
+    this.status = status;
+    return true;
   }
 
   @Override
   public MeetingRoom getLocation() {
     // TODO Auto-generated method stub
-    return null;
+    return this.location;
   }
 
   @Override
   public boolean setLocation(MeetingRoom room) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public void setParticipants(List<String> participants) {
-    // TODO Auto-generated method stub
-    
+    this.location = room;
+    return true;
   }
 
 
 }
-

@@ -8,7 +8,7 @@
   </component>
   <component>
      <key>org.exoplatform.codefestH.service.MeetingService</key>
-     <type>org.exoplatform.codefestH.service.mock.MeetingServiceimpl</type>
+     <type>org.exoplatform.codefestH.service.impl.MeetingServiceimpl</type>
   </component>
     <component>
      <key>org.exoplatform.codefestH.service.MeetingCommentService</key>

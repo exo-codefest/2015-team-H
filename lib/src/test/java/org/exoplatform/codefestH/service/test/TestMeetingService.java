@@ -14,52 +14,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.mock;
+package org.exoplatform.codefestH.service.test;
 
 import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 import org.exoplatform.codefestH.service.Meeting;
-import org.exoplatform.codefestH.service.MeetingRoom;
-import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.MeetingService;
+import org.exoplatform.codefestH.service.impl.Meetingimpl;
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Jul 6, 2015  
+ * Jul 7, 2015  
  */
-public class MeetingRoomimpl implements MeetingRoom {
-
-  @Override
-  public String getName() {
-    // TODO Auto-generated method stub
-    return null;
+public class TestMeetingService extends BaseTest {
+  public void testSave(){
+    MeetingService service = getService(MeetingService.class);
+    Meeting meeting = new Meetingimpl("", new Date(), new Date(),"title", "description", "owner",  false);
+    service.saveMeeting(meeting);
+    Meeting test = service.getMeeting(meeting.getID());
+    //assertEquals(test.getOwner(), meeting.getOwner());
   }
-
-  @Override
-  public List<Meeting> getMeetings() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public List<TimeRange> getBusyTime(Date fromTime) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public boolean addMeeting(Meeting meeting) {
-    // TODO Auto-generated method stub
-    return false;
-  }
-
-  @Override
-  public String getID() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
 }
