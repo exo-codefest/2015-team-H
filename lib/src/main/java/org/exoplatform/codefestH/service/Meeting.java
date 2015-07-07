@@ -28,6 +28,11 @@ import java.util.List;
  * Store data about Meeting Object
  */
 public interface Meeting extends Referenceable{
+
+  public final static String OPEN = "open";
+  public final static String CLOSED = "closed";
+  public final static String REOPEN = "reopen";
+
   /**
    * Return path of JCR Node store Meeting data
    * @return 
@@ -61,7 +66,7 @@ public interface Meeting extends Referenceable{
   
   /**
    * Set Title of Meeting
-   * @param description
+   * @param title
    */
   public void setTitle(String title);
   
@@ -162,5 +167,15 @@ public interface Meeting extends Referenceable{
    * @return
    */
   public boolean setLocation(MeetingRoom room);
-  
+
+  /**
+   * Reopen the poll in case poll owner would like to vote again
+   */
+  public void reopenPoll();
+
+  /**
+   * Get status of a Poll
+   * @return
+   */
+  public String getPollStatus();
 }

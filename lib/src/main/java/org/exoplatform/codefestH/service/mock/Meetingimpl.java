@@ -16,13 +16,13 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.TimeRange;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by The eXo Platform SAS
@@ -164,4 +164,15 @@ public class Meetingimpl implements Meeting {
     return null;
   }
 
-}
+
+  @Override
+  public void reopenPoll() {
+    //Reopen a poll to vote again
+  }
+
+  @Override
+  public String getPollStatus() {
+    return OPEN;
+  }
+
+ }

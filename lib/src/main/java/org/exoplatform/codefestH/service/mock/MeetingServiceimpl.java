@@ -16,11 +16,11 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
-import java.util.List;
-import java.util.UUID;
-
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by The eXo Platform SAS
@@ -70,6 +70,26 @@ public class MeetingServiceimpl implements MeetingService {
   public List<Meeting> getMeetingByParticipant(String username) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public void removeParticipant(String meetingId, String userName) {
+    //Remove participant by username
+  }
+
+  @Override
+  public void closePoll(String pollId) {
+
+  }
+
+  @Override
+  public void reopenPoll(String pollId) {
+
+  }
+
+  @Override
+  public String getPollStatus(String pollId) {
+    return Meeting.OPEN;
   }
 
 }

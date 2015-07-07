@@ -29,6 +29,7 @@ import java.util.UUID;
  * Service handle CRUD operation of Meeting
  */
 public interface MeetingService {
+
   public Meeting getMeeting(String path);
   public Meeting getMeeting(UUID id);
   public Meeting removeMeeting(String path);
@@ -36,4 +37,31 @@ public interface MeetingService {
   public boolean saveMeeting(Meeting meeting);
   public List<Meeting> getMeetingByOwner(String username);
   public List<Meeting> getMeetingByParticipant(String username);
+
+  /**
+   * Remove a participant from teh poll
+   * @param pollId Identify of a poll
+   * @param username Username of participant who will be removed from the poll
+   */
+  public void removeParticipant(String pollId, String username);
+
+  /**
+   * Close the poll in the poll owner has enough response
+   * @param pollId
+   */
+  public void closePoll(String pollId);
+
+  /**
+   * Reopen poll to vote again
+   * @param pollId Identify of a Poll
+   */
+  public void reopenPoll(String pollId);
+
+  /**
+   * Return status of a poll
+   * ex: closed, reopen, open
+   * @param pollId
+   * @return Status of a poll
+   */
+  public String getPollStatus(String pollId);
 }
