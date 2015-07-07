@@ -1,5 +1,6 @@
 package org.exoplatform.codefestH.webui.core;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.MeetingService;
@@ -62,7 +63,11 @@ public class CreateMeetingForm extends UIForm {
             createUIComponent(UIFormMultiValueInputSet.class, null, FIELD_TIME_TEXT_BOX);
     this.addUIFormInput(uiFormMValue);
     uiFormMValue.setType(UIFormStringInput.class);
-    uiFormMValue.setValue(new ArrayList(3));
+    List<String> values = new ArrayList<String>();
+    values.add(StringUtils.EMPTY);
+    values.add(StringUtils.EMPTY);
+    values.add(StringUtils.EMPTY);
+    uiFormMValue.setValue(values);
 
     UIFormStringInput participantsTextBox = new UIFormStringInput(FIELD_PARTICIPANTS_TEXT_BOX,
             FIELD_PARTICIPANTS_TEXT_BOX, null);
