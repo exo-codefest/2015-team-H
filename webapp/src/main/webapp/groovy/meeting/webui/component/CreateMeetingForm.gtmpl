@@ -1,43 +1,46 @@
+<div class="UIForm uiCreateMeetingForm">
+
+<%uiform.begin()%>
+
 <div class="uiBox schedule-portlet">
 	<div class="uiContentBox">
-		<form action="" method="post" class="create-schedule">
 			<fieldset>
 				<legend>Schedule a meeting</legend>
 				<div class="section-input">
 					<div class="row-fluid">
 						<div class="span6">
 							<div class="control-group">
-								<label for="<%=uicomponent.FIELD_TITLE_TEXT_BOX%>">Title</label>
-								<% uicomponent.renderChild(uicomponent.FIELD_TITLE_TEXT_BOX)%>
+								<label for="<%=uiform.FIELD_TITLE_TEXT_BOX%>">Title</label>
+								<% uiform.renderChild(uiform.FIELD_TITLE_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="<%=uicomponent.FIELD_LOCATION_TEXT_BOX%>">Location<span class="muted"> ( optional )</span> </label>
-								<% uicomponent.renderChild(uicomponent.FIELD_LOCATION_TEXT_BOX)%>
+								<label for="<%=uiform.FIELD_LOCATION_TEXT_BOX%>">Location<span class="muted"> ( optional )</span> </label>
+								<% uiform.renderChild(uiform.FIELD_LOCATION_TEXT_BOX)%>
 							</div>
 							<div class="control-group">
-								<label for="<%=uicomponent.FIELD_DESCRIPTION_TEXT_AREA%>">Description<span class="muted"> ( optional )</span></label>
-								<% uicomponent.renderChild(uicomponent.FIELD_DESCRIPTION_TEXT_AREA)%>
+								<label for="<%=uiform.FIELD_DESCRIPTION_TEXT_AREA%>">Description<span class="muted"> ( optional )</span></label>
+								<% uiform.renderChild(uiform.FIELD_DESCRIPTION_TEXT_AREA)%>
 							</div>
 						</div>
 						<div class="span6">
 							<div class="control-group">
-								<label for="<%=uicomponent.FIELD_DATE_TEXT_BOX%>">Date Proposals</label>
-								<% uicomponent.renderChild(uicomponent.FIELD_DATE_TEXT_BOX)%>
+								<label for="<%=uiform.FIELD_DATE_TEXT_BOX%>">Date Proposals</label>
+								<% uiform.renderChild(uiform.FIELD_DATE_TEXT_BOX)%>
 							</div>
 
 							<div class="control-group time-section ">
 								<div class="UIFormMultiValueInputSet clearfix">
-									<label for="<%=uicomponent.FIELD_TIME1_TEXT_BOX%>">Time  <span class="muted">( time 24 )</span></label>
+									<label for="<%=uiform.FIELD_TIME1_TEXT_BOX%>">Time  <span class="muted">( time 24 )</span></label>
 									<div class="multiValueContainer">
-										<% uicomponent.renderChild(uicomponent.FIELD_TIME1_TEXT_BOX)%>
+										<% uiform.renderChild(uiform.FIELD_TIME1_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 									</div>
 									<div class="multiValueContainer">
-										<% uicomponent.renderChild(uicomponent.FIELD_TIME2_TEXT_BOX)%>
+										<% uiform.renderChild(uiform.FIELD_TIME2_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 									</div>
 									<div class="multiValueContainer">
-										<% uicomponent.renderChild(uicomponent.FIELD_TIME3_TEXT_BOX)%>
+										<% uiform.renderChild(uiform.FIELD_TIME3_TEXT_BOX)%>
 										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
 										<a data-placement="bottom" rel="tooltip" alt="Add Item"  class="actionIcon" data-original-title="Add Item"><i class="uiIconAddIcon uiIconLightGray"></i></a>
 
@@ -46,9 +49,9 @@
 								</div>
 							</div>
 							<div class="control-group ">
-								<label for="<%=uicomponent.FIELD_PARTICIPANTS_TEXT_BOX%>">Invite participants</label>
-								<% uicomponent.renderChild(uicomponent.FIELD_PARTICIPANTS_TEXT_BOX)%>
-								<a data-placement="bottom" rel="tooltip" href="javascript:void(0)" class="actionIcon" data-original-title="Select User">
+								<label for="<%=uiform.FIELD_PARTICIPANTS_TEXT_BOX%>">Invite participants</label>
+								<% uiform.renderChild(uiform.FIELD_PARTICIPANTS_TEXT_BOX)%>
+								<a data-placement="bottom" rel="tooltip" href="<%=uiform.event('SelectMember')%>" class="actionIcon" data-original-title="Select User">
 			<i class="uiIconUser uiIconLightGray"></i>
 		</a>
 								<!-- <div class="blastInputPeople">
@@ -78,9 +81,9 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
 	</div>
 </div>
+<%uiform.end()%>
 
 <!-- this is detail schedule-->
 
