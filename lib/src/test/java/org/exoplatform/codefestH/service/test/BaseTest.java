@@ -34,10 +34,15 @@ import org.exoplatform.component.test.ContainerScope;
 })
 public abstract class BaseTest extends BaseExoTestCase{
   protected void setUp(){
-
+      try {
+        super.setUp();
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
   }
   protected void tearDown() throws Exception {
-
+    super.tearDown();
   }
   public <T> T getService(Class<T> clazz) {
     return (T) getContainer().getComponentInstanceOfType(clazz);

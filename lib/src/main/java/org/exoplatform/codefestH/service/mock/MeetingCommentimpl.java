@@ -65,7 +65,7 @@ public class MeetingCommentimpl implements MeetingComment {
   }
 
   @Override
-  public UUID getID() {
+  public String getID() {
     // TODO Auto-generated method stub
     return null;
   }

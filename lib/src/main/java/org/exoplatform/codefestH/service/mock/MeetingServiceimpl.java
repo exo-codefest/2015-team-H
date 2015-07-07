@@ -16,6 +16,9 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
+
+import java.util.List;
+
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
 
@@ -31,25 +34,13 @@ import java.util.UUID;
 public class MeetingServiceimpl implements MeetingService {
 
   @Override
-  public Meeting getMeeting(String path) {
+  public Meeting getMeeting(String id) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public Meeting getMeeting(UUID id) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public Meeting removeMeeting(String path) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public Meeting removeMeeting(UUID id) {
+  public Meeting removeMeeting(String id) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -73,23 +64,36 @@ public class MeetingServiceimpl implements MeetingService {
   }
 
   @Override
-  public void removeParticipant(String meetingId, String userName) {
-    //Remove participant by username
+  public List<Meeting> getAllMeeting() {
+
+    // TODO Auto-generated method stub
+    return null;
   }
 
   @Override
-  public void closePoll(String pollId) {
-
+  public boolean setMeetingClose(String meetingID) {
+    // TODO Auto-generated method stub
+    return false;
   }
 
   @Override
-  public void reopenPoll(String pollId) {
-
+  public boolean removeParticipant(String meetingID, String username) {
+    // TODO Auto-generated method stub
+    return false;
   }
 
   @Override
-  public String getPollStatus(String pollId) {
-    return Meeting.OPEN;
+  public boolean addParticipant(String meetingID, String username) {
+    // TODO Auto-generated method stub
+    return false;
   }
+
+  @Override
+  public List<String> getParticipants(String meetingID) {
+    // TODO Auto-generated method stub
+    return null;
+
+  }
+
 
 }

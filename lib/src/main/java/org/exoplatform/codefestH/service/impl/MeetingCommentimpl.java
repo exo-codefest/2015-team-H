@@ -14,50 +14,58 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.mock;
+package org.exoplatform.codefestH.service.impl;
 
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
-import org.exoplatform.codefestH.service.Meeting;
-import org.exoplatform.codefestH.service.MeetingRoom;
-import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.MeetingComment;
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Jul 6, 2015  
+ * Jul 7, 2015  
  */
-public class MeetingRoomimpl implements MeetingRoom {
+public class MeetingCommentimpl implements MeetingComment {
 
   @Override
-  public String getName() {
+  public String getID() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public List<Meeting> getMeetings() {
+  public String getMeetingCommentNodePath() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public List<TimeRange> getBusyTime(Date fromTime) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  public boolean addMeeting(Meeting meeting) {
+  public boolean setMeetingCommentNodePath(String meetingCommentNodePath) {
     // TODO Auto-generated method stub
     return false;
   }
 
   @Override
-  public String getID() {
+  public String getCommentOwner() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public void setCommentOwner(String username) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public String getComment() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String setComment(String comment) {
     // TODO Auto-generated method stub
     return null;
   }

@@ -14,32 +14,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service;
+package org.exoplatform.codefestH.service.test;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.Date;
 
+import org.exoplatform.codefestH.service.Meeting;
+import org.exoplatform.codefestH.service.MeetingService;
+import org.exoplatform.codefestH.service.impl.Meetingimpl;
 
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
  *          exo@exoplatform.com
- * Jul 6, 2015  
- * 
- * Service handle CRUD operation of Meeting
+ * Jul 7, 2015  
  */
-public interface MeetingService {
-
-  public Meeting getMeeting(String id);
-  public Meeting removeMeeting(String id);
-  public boolean saveMeeting(Meeting meeting);
-  public List<Meeting> getMeetingByOwner(String username);
-  public List<Meeting> getMeetingByParticipant(String username);
-
-  public List<String> getParticipants(String meetingID);
-  public boolean addParticipant(String meetingID, String username);
-  public boolean removeParticipant(String meetingID, String username);
-  List<Meeting> getAllMeeting();
-  boolean setMeetingClose(String meetingID);
-
+public class TestMeetingService extends BaseTest {
+  public void testSave(){
+    MeetingService service = getService(MeetingService.class);
+    Meeting meeting = new Meetingimpl("", new Date(), new Date(),"title", "description", "owner",  false);
+    service.saveMeeting(meeting);
+    Meeting test = service.getMeeting(meeting.getID());
+    //assertEquals(test.getOwner(), meeting.getOwner());
+  }
 }

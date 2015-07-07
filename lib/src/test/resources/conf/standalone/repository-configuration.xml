@@ -39,7 +39,7 @@
                         <properties>
                             <property name="time-out" value="15m" /><!-- 15min -->
                             <property name="path" value="target/temp/lock/portal-test"/>
-                            <property name="jbosscache-configuration" value="conf/standalone/jcr-jbosscache-lock-config.xml" />
+                            <property name="jbosscache-configuration" value="classpath:conf/standalone/jcr-jbosscache-lock-config.xml" />
                         </properties>
                     </lock-manager>
                 </workspace>
@@ -76,7 +76,7 @@
                         <properties>
                             <property name="time-out" value="15m" /><!-- 15min -->
                             <property name="path" value="target/temp/lock/portal-test"/>
-                            <property name="jbosscache-configuration" value="conf/standalone/jcr-jbosscache-lock-config.xml" />
+                            <property name="jbosscache-configuration" value="classpath:conf/standalone/jcr-jbosscache-lock-config.xml" />
                         </properties>
                     </lock-manager>
 
@@ -114,7 +114,7 @@
                         <properties>
                             <property name="time-out" value="15m" /><!-- 15min -->
                             <property name="path" value="target/temp/lock/portal-test"/>
-                            <property name="jbosscache-configuration" value="conf/standalone/jcr-jbosscache-lock-config.xml" />
+                            <property name="jbosscache-configuration" value="classpath:conf/standalone/jcr-jbosscache-lock-config.xml" />
                         </properties>
                     </lock-manager>
 
@@ -154,7 +154,7 @@
                         <properties>
                             <property name="time-out" value="15m" /><!-- 15min -->
                             <property name="path" value="target/temp/lock/collaboration"/>
-                            <property name="jbosscache-configuration" value="conf/standalone/jcr-jbosscache-lock-config.xml" />
+                            <property name="jbosscache-configuration" value="classpath:conf/standalone/jcr-jbosscache-lock-config.xml" />
                         </properties>
                     </lock-manager>
 

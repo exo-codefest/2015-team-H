@@ -27,5 +27,5 @@ import java.util.UUID;
  * Provice access to mix:referenceable data
  */
 public interface Referenceable {
-  public UUID getID();
+  public String getID();
 }

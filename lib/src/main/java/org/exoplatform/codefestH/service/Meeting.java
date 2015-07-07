@@ -29,23 +29,17 @@ import java.util.List;
  */
 public interface Meeting extends Referenceable{
 
+
   public final static String OPEN = "open";
   public final static String CLOSED = "closed";
   public final static String REOPEN = "reopen";
 
+
   /**
-   * Return path of JCR Node store Meeting data
-   * @return 
-   */
-  public String getMeetingNodePath();
-  
-  /**
-   * Set path of JCR Node store Meeting data
-   * @param meetingNodePath
+   * Get Id of meeting
    * @return
    */
-  public boolean setMeetingNodePath(String meetingNodePath);
-  
+  public String getID();
   /**
    * Get Create time of Meeting
    * @return
@@ -110,7 +104,7 @@ public interface Meeting extends Referenceable{
    * get all comments of Meeting
    * @return
    */
-  public List<String> getComments();
+  public List<MeetingComment> getComments();
   
   /**
    * Add one comment to Meeting
@@ -168,14 +162,10 @@ public interface Meeting extends Referenceable{
    */
   public boolean setLocation(MeetingRoom room);
 
-  /**
-   * Reopen the poll in case poll owner would like to vote again
-   */
-  public void reopenPoll();
 
-  /**
-   * Get status of a Poll
-   * @return
-   */
-  public String getPollStatus();
+
+
+  void setParticipants(List<String> participants);
+  
+
 }
