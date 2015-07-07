@@ -2,9 +2,22 @@
     margin: 15px;
 }
 .schedule-portlet legend {
-     font-weight: bold;
+    background: rgba(0, 0, 0, 0) url("/team-h-addon-webapp/css/../images/schedule-icon-gray.png") no-repeat scroll 0 -4px / 50px auto;
+    box-sizing: border-box;
+    font-weight: bold;
     line-height: 100%;
     padding-bottom: 15px;
+    padding-left: 60px;
+    padding-top: 10px;
+}
+.LeftNavigationTDContainer .uiIconExt-Meeting {
+ background: rgba(0, 0, 0, 0) url("/team-h-addon-webapp/css/../images/16x16CodeFestBlack.png") no-repeat scroll 0 0px ;
+   
+}
+.LeftNavigationTDContainer .uiIconExt-Meeting:hover ,.LeftNavigationTDContainer ul li a:hover .uiIconExt-Meeting  {
+ background: rgba(0, 0, 0, 0) url("/team-h-addon-webapp/css/../images/16x16CodeFestBlue.png") no-repeat scroll 0 0px ;
+   
+
 }
 .create-schedule-portlet {
     margin: 15px;
@@ -39,13 +52,13 @@
     margin-bottom: 10px;
 }
 .top-detail-schedule .action a:after {
-    background: #999 none repeat scroll 0 0;
+    background: #ddd none repeat scroll 0 0;
     content: "";
     display: block;
     height: 10px;
     position: absolute;
     right: 0;
-    top: 6px;
+    top: 5px;
     width: 1px;
 }
 .top-detail-schedule .action a.time-publish:after {
@@ -53,9 +66,12 @@
 }
 
 .top-detail-schedule {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
+.bottom-detail-schedule .uiTabNormal {
+    margin-bottom: 30px;
+}
 .section-input .control-group input{
     margin-bottom: 0;
 }
@@ -66,4 +82,120 @@
 
 .section-input textarea {
     height: 114px;
+}
+
+.commentListInfo + .commentList {
+    padding-top: 0;
+}
+.commentList .commentItem .commmentLeft {
+    float: left;
+}
+
+.commentList .commentItem .commmentLeft + .commentRight {
+    margin-left: 45px;
+}
+.commentListInfo {
+    padding: 10px 15px 10px 0;
+}
+.contentComment {
+    word-wrap: break-word;
+}
+
+
+.commentList .commentItem .uiIconClose, .commentList .commentItem .viewComment {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.commentList .commentItem .uiIconClose {
+    top: 3px;
+}
+
+.commentList {
+    padding: 15px 15px 0 0;
+}
+
+.commentList .commentItem:hover .uiIconClose,.commentList .commentItem:hover .viewComment {
+    display: block;
+}
+
+#comment-box-container {
+    margin-top: 20px;
+}
+.commentList .commentItem {
+    position: relative;
+}
+.action-icon {
+    margin-bottom: 15px;
+}
+
+#administration-view h4{
+    margin-bottom: 25px;
+}
+
+.name-info input {
+    margin-top: 10px;
+    width: 180px;
+}
+
+.name-info > div {
+    margin-top: 20px;
+}
+
+.table-responsive .name-info {
+    width: 200px;
+    text-align: left;
+}
+
+.table-view table td {
+    padding: 0 10px;
+}
+
+
+.table-responsive caption {
+    background: #2f5e92;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: white;    border-radius: 3px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+
+.table-responsive td {
+    min-width: 80px;
+    text-align: center;
+    border-right: 1px dashed #ddd;
+}
+/* .table-responsive td:last-child {
+    border: none;
+} */
+
+.infor {
+    margin-bottom: 15px;
+}
+.schedule-portlet .uiTabNormal .tab-content {
+    padding: 20px 15px;
+}
+.check-option {
+    background: #eee none repeat scroll 0 0;
+    padding: 5px 0;
+    min-height: 20px;
+}
+.table-responsive td p {
+    margin: 0;
+    padding-top: 5px;
+}
+
+.check-option-selected {
+    background:#d1f3d1;
+}
+
+.check-option-no-selected {
+    background:#ffccca;
 }
