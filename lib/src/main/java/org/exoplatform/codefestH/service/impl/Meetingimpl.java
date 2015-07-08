@@ -16,6 +16,7 @@
  */
 package org.exoplatform.codefestH.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -40,7 +41,7 @@ public class Meetingimpl implements Meeting {
   private String title;
   private String description;
   private String owner;
-  private List<String> participants;
+  private List<String> participants = new ArrayList<String>();
   private List<TimeRange> timeSlot;
   private List<MeetingComment> comments;
   private boolean status;
