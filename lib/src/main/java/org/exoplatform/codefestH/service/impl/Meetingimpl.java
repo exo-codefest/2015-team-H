@@ -24,6 +24,7 @@ import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingComment;
 import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.services.idgenerator.IDGeneratorService;
 
 /**
  * Created by The eXo Platform SAS
@@ -61,7 +62,7 @@ public class Meetingimpl implements Meeting {
   @Override
   public String getID() {
     if(this.id.equals(""))
-      this.id = UUID.randomUUID().toString();
+      this.id = UUID.randomUUID().toString().replace("-", "");
     return this.id;
   }
 

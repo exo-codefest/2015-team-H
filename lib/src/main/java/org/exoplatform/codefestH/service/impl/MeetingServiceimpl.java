@@ -44,6 +44,7 @@ import org.exoplatform.services.jcr.ext.app.SessionProviderService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 
 /**
@@ -71,7 +72,7 @@ public class MeetingServiceimpl implements MeetingService {
   private SessionProviderService sessionProviderService;
   private String repo = "repository";
   private String ws = "collaboration";
-  private String rootMeetingPath = "/meeting";
+  private String rootMeetingPath = "meeting";
   private CalendarAPI calendarAPI;
 
   public MeetingServiceimpl(RepositoryService repoService,
@@ -91,10 +92,8 @@ public class MeetingServiceimpl implements MeetingService {
   }
   private Session getSession() throws Exception {
 
-    ManageableRepository repository = repoService.getRepository(this.repo);
-    SessionProvider sessionProvider = sessionProviderService.getSystemSessionProvider(null);
-    Session session = sessionProvider.getSession(this.ws, repository);
-    return session;
+    ManageableRepository repository = repoService.getCurrentRepository();
+    return WCMCoreUtils.getUserSessionProvider().getSession(ws, repository);
   }
 
 
@@ -104,6 +103,7 @@ public class MeetingServiceimpl implements MeetingService {
     Session session;
     try {
       session = this.getSession();
+      if(!session.getRootNode().hasNode(rootMeetingPath)) return null;
       Node rootMeeting = session.getRootNode().getNode(rootMeetingPath);
       if(rootMeeting == null) return null;
       Node meetingNode = rootMeeting.getNode("/" + id);
@@ -134,16 +134,24 @@ public class MeetingServiceimpl implements MeetingService {
   public boolean saveMeeting(Meeting meeting) {
     try {
       Session session = this.getSession();
-      Node meetingRoot = session.getRootNode().getNode(this.rootMeetingPath);
-      if(meetingRoot == null) meetingRoot = session.getRootNode().addNode(this.rootMeetingPath);
-      Node meetingNode = meetingRoot.getNode(meeting.getID());
-      if(meetingNode == null) {
+      Node rootNode = session.getRootNode();
+      Node meetingFolder = null;
+      if(rootNode.hasNode(rootMeetingPath))
+        meetingFolder = session.getRootNode().getNode(rootMeetingPath);
+      else{
+        meetingFolder = rootNode.addNode(this.rootMeetingPath,"nt:unstructured");
+        rootNode.save();
+      }
+      Node meetingNode = null;
+      if(!meetingFolder.hasNode(meeting.getID())) {
         //create new
-        meetingNode = meetingRoot.addNode(meeting.getID(),MEETING_TYPE);
-      } 
+        meetingNode = meetingFolder.addNode(meeting.getID(),MEETING_TYPE);
+        meetingFolder.save();
+      } else{
+        meetingNode = meetingFolder.getNode(meeting.getID());
+      }
       wrapMeetingToNode(meeting, meetingNode);
       meetingNode.save();
-      session.save();
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();

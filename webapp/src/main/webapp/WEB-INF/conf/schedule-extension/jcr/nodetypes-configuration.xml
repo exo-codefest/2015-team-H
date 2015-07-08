@@ -1,32 +1,7 @@
 <nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
   xmlns:jcr="http://www.jcp.org/jcr/1.0">
 
-  <nodeType name="teamH:meetingcomment" isMixin="false"
-    hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-      <supertype>mix:referenceable</supertype>
-    </supertypes>
-    <propertyDefinitions>
-      <!-- Owner of meeting comment -->
-      <propertyDefinition name="mt:owner"
-        requiredType="String" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-      <!-- Body of a meeting comment -->
-      <propertyDefinition name="mt:comment"
-        requiredType="String" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-    </propertyDefinitions>
-  </nodeType>
-
-  <nodeType name="teamH:meeting" isMixin="false"
-    hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-      <supertype>mix:referenceable</supertype>
-    </supertypes>
+  <nodeType name="teamH:meeting" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <propertyDefinitions>
       <!-- Title of a meeting -->
       <propertyDefinition name="mt:title"
@@ -48,9 +23,9 @@
       </propertyDefinition>
       <!-- Comment of a meeting -->
       <propertyDefinition name="mt:comment"
-        requiredType="teamH:meetingcomment" autoCreated="false"
+        requiredType="String" autoCreated="false"
         mandatory="false" onParentVersion="COPY" protected="false"
-        multiple="true">
+        multiple="false">
         <valueConstraints />
       </propertyDefinition>
       <!-- Username of meeting's creator -->
@@ -81,7 +56,7 @@
       <!-- Time range provide for a meeting -->
       <propertyDefinition name="mt:timeslot"
         requiredType="String" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="true">
+        onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />
       </propertyDefinition>
       <!-- Allow the owner decide the selection is one or many -->
@@ -110,7 +85,4 @@
       </propertyDefinition>
     </propertyDefinitions>
   </nodeType>
-
-
-
 </nodeTypes>
