@@ -1,6 +1,7 @@
 package org.exoplatform.codefestH.webui.portlet;
 
 import org.exoplatform.codefestH.webui.core.CreateMeetingForm;
+import org.exoplatform.codefestH.webui.core.UIMeetingList;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -12,8 +13,9 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
         lifecycle = UIApplicationLifecycle.class)
 public class MeetingPortlet extends UIPortletApplication {
   public MeetingPortlet() throws Exception {
-    addChild(CreateMeetingForm.class, null, "CreateMeetingForm");
-    addChild(UIPopupContainer.class, null, "MeetingPopupContainer");
+    addChild(CreateMeetingForm.class, null, null).setRendered(false);
+    addChild(UIPopupContainer.class, null, null);
+    addChild(UIMeetingList.class, null, null);
   }
 
   public UIPopupContainer getPopupContainer() {

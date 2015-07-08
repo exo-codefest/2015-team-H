@@ -13,10 +13,11 @@ import org.exoplatform.webui.organization.account.UIUserSelector;
 
 @ComponentConfig(
         lifecycle = UIContainerLifecycle.class,
-        events = {@EventConfig(listeners = UIUserContainer.AddActionListener.class)}
+        events = {@EventConfig(listeners = UIUserContainer.AddActionListener.class),
+                @EventConfig(listeners = UIUserContainer.CloseActionListener.class)}
 )
 
-public class UIUserContainer extends UIContainer implements UIPopupComponent  {
+public class UIUserContainer extends UIContainer implements UIPopupComponent {
 
   public UIUserContainer() throws Exception {
     UIUserSelector uiUserSelector = getChild(UIUserSelector.class);
@@ -28,6 +29,7 @@ public class UIUserContainer extends UIContainer implements UIPopupComponent  {
     uiUserSelector.setShowSearchUser(true);
     uiUserSelector.setShowSearch(true);
   }
+
   public void activate() {
 
   }
@@ -43,6 +45,15 @@ public class UIUserContainer extends UIContainer implements UIPopupComponent  {
       MeetingPortlet meetingPortlet = event.getSource().getAncestorOfType(MeetingPortlet.class);
       meetingPortlet.getChild(CreateMeetingForm.class).getUIStringInput(CreateMeetingForm
               .FIELD_PARTICIPANTS_TEXT_BOX).setValue(uiUserSelector.getSelectedUsers());
+    }
+  }
+
+  static public class CloseActionListener extends EventListener<UIUserContainer> {
+    public void execute(Event<UIUserContainer> event) throws Exception {
+      UIUserContainer uiUserContainer = event.getSource();
+      UIUserSelector uiUserSelector = uiUserContainer.getChild(UIUserSelector.class);
+      MeetingPortlet meetingPortlet = event.getSource().getAncestorOfType(MeetingPortlet.class);
+      meetingPortlet.getPopupContainer().deActivate();
     }
   }
 }
