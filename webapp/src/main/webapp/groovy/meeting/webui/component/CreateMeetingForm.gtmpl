@@ -104,7 +104,7 @@
 			</div>
 			<div class="bottom-detail-schedule">
 				<div class="uiTabNormal uiTabInPage">
-					<ul class="nav nav-tabs" id="myTab">
+					<ul class="nav nav-tabs" id="myTab1">
 						<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
 						<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
 					</ul>
@@ -178,7 +178,7 @@
 				</div>
 
 				<div class="uiTabNormal uiTabInPage">
-					<ul class="nav nav-tabs" id="myTab">
+					<ul class="nav nav-tabs" id="myTab2">
 						<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
 						<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
 					</ul>
@@ -296,7 +296,7 @@
 				</div>
 
 				<div class="uiTabNormal uiTabInPage">
-					<ul class="nav nav-tabs" id="myTab">
+					<ul class="nav nav-tabs" id="myTab3">
 						<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
 						<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
 					</ul>
@@ -415,7 +415,7 @@
 
 
 				<div class="uiTabNormal uiTabInPage">
-					<ul class="nav nav-tabs" id="myTab">
+					<ul class="nav nav-tabs" id="myTab4">
 						<li ><a  href="#table-view" data-toggle="tab"> Table view</a></li>
 						<li class="active"><a  href="#administration-view" data-toggle="tab">Administration</a></li>
 					</ul>

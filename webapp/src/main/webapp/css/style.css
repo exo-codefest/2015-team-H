@@ -1,7 +1,7 @@
 .schedule-portlet {
     margin: 15px;
 }
-.schedule-portlet legend {
+.schedule-portlet legend,.title-schedule {
     background: rgba(0, 0, 0, 0) url("/team-h-addon-webapp/css/../images/schedule-icon-gray.png") no-repeat scroll 0 -4px / 50px auto;
     box-sizing: border-box;
     font-weight: bold;
@@ -9,6 +9,9 @@
     padding-bottom: 15px;
     padding-left: 60px;
     padding-top: 10px;
+}
+.schedule-detail .title-schedule{
+    margin-top: 0;
 }
 .LeftNavigationTDContainer .uiIconExt-Meeting {
  background: rgba(0, 0, 0, 0) url("/team-h-addon-webapp/css/../images/16x16CodeFestBlack.png") no-repeat scroll 0 0px ;
@@ -202,4 +205,9 @@
 
 .schedule-detail .table-responsive td {
     text-align: left;
+}
+
+
+.schedule-detail .top-detail .btn {
+    margin-top: 11px;
 }
