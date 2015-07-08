@@ -160,7 +160,8 @@ public class Meetingimpl implements Meeting {
   }
 
   @Override
-  public void setTimeRange(List<TimeRange> time) {
+
+  public void setTimeRange(List<TimeRange> timeSlot) {
     // TODO Auto-generated method stub
     
   }

@@ -16,10 +16,10 @@
  */
 package org.exoplatform.codefestH.service.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
 import java.util.Date;
-
 import java.util.List;
 
 import javax.jcr.Node;
@@ -27,6 +27,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
 import javax.jcr.lock.LockException;
 import javax.jcr.nodetype.ConstraintViolationException;
@@ -36,6 +37,7 @@ import org.exoplatform.codefestH.service.CalendarAPI;
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.Referenceable;
+import org.exoplatform.codefestH.service.TimeRange;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.app.SessionProviderService;
@@ -63,7 +65,7 @@ public class MeetingServiceimpl implements MeetingService {
   private final String LOCATION = "mt:location";
   private final String TIME_SLOT = "mt:timeslot";
   private final String CREATE_DATE = "mt:date";
-  
+
   private Log log = ExoLogger.getExoLogger(MeetingServiceimpl.class);
   private RepositoryService repoService;
   private SessionProviderService sessionProviderService;
@@ -71,16 +73,16 @@ public class MeetingServiceimpl implements MeetingService {
   private String ws = "collaboration";
   private String rootMeetingPath = "/meeting";
   private CalendarAPI calendarAPI;
-  
+
   public MeetingServiceimpl(RepositoryService repoService,
-                         SessionProviderService sessionProviderService,
-                         CalendarAPI calendarAPI){
+                            SessionProviderService sessionProviderService,
+                            CalendarAPI calendarAPI){
     this.repoService = repoService;
     this.sessionProviderService = sessionProviderService;
     this.calendarAPI = calendarAPI;
     try {
       this.repo = repoService.getCurrentRepository().getConfiguration().getName();
-      
+
     } catch (Exception ex) {
       if (log.isErrorEnabled()) {
         log.error("Using default repository & workspace", ex.getMessage());
@@ -88,15 +90,15 @@ public class MeetingServiceimpl implements MeetingService {
     }
   }
   private Session getSession() throws Exception {
-    
+
     ManageableRepository repository = repoService.getRepository(this.repo);
     SessionProvider sessionProvider = sessionProviderService.getSystemSessionProvider(null);
     Session session = sessionProvider.getSession(this.ws, repository);
     return session;
   }
-  
-  
-  
+
+
+
   @Override
   public Meeting getMeeting(String id) {
     Session session;
@@ -118,7 +120,7 @@ public class MeetingServiceimpl implements MeetingService {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    
+
     return null;
   }
 
@@ -159,7 +161,7 @@ public class MeetingServiceimpl implements MeetingService {
     }
     return result;
   }
-  
+
 
   @Override
   public List<Meeting> getAllMeeting() {
@@ -198,7 +200,7 @@ public class MeetingServiceimpl implements MeetingService {
   }
 
   private Meeting wrapNodeToMeeting(Node n){
-    
+
     try {
       Meeting result = new Meetingimpl(n.getName(), 
                                        n.getProperty(CREATE_DATE).getDate().getTime(), 
@@ -207,6 +209,12 @@ public class MeetingServiceimpl implements MeetingService {
                                        n.getProperty(DESCRIPTION).getString(), 
                                        n.getProperty(OWNER).getString(), 
                                        n.getProperty(STATUS).getBoolean());
+      if(result.isClose()){
+        result.setFinalTime(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()).get(0));
+      }
+      else{
+        result.setTimeRange(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()));
+      }
       return result;
     } catch (ValueFormatException e) {
       // TODO Auto-generated catch block
@@ -220,26 +228,32 @@ public class MeetingServiceimpl implements MeetingService {
     }
     return null;
   }
-  
+
   private void wrapMeetingToNode(Meeting m, Node n){
     //n.setProperty(name, value)
     try {
-    n.setProperty(TITLE,m.getTitle());
-    n.setProperty(DESCRIPTION,m.getDescription());
-    n.setProperty(OWNER,m.getOwner());
-    n.setProperty(UPDATE_TIME,"");
-    n.setProperty(STATUS,m.isClose());
-    if(m.getParticipants() != null){      
-      StringBuilder participants = new StringBuilder();
-      for(String p : m.getParticipants()) participants.append(p + ",");      
+      n.setProperty(TITLE,m.getTitle());
+      n.setProperty(DESCRIPTION,m.getDescription());
+      n.setProperty(OWNER,m.getOwner());
+      n.setProperty(UPDATE_TIME,"");
+      n.setProperty(STATUS,m.isClose());
+      if(m.getParticipants() != null){      
+        StringBuilder participants = new StringBuilder();
+        for(String p : m.getParticipants()) participants.append(p + ",");      
         n.setProperty(PARTICIPANTS,participants.toString());      
-    }
-    if(m.getComments() != null)
-      n.setProperty(COMMENTS,getIDToString(m.getComments()));
-    
+
+      }
+      if(m.getComments() != null)
+        n.setProperty(COMMENTS,getIDToString(m.getComments()));
+
       n.setProperty(LOCATION,m.getLocation());
-    if(m.getTimeSlot() != null)
-      n.setProperty(TIME_SLOT,getIDToString(m.getTimeSlot()));
+      if(m.isClose()){
+        ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
+        temp.add(m.getFinalTime());
+        n.setProperty(TIME_SLOT,wrapTimeSlotToString(temp));
+      }else{
+        n.setProperty(TIME_SLOT,wrapTimeSlotToString(m.getTimeSlot()));
+      }
     } catch (ValueFormatException e) {
       e.printStackTrace();
     } catch (VersionException e) {
@@ -252,6 +266,36 @@ public class MeetingServiceimpl implements MeetingService {
       e.printStackTrace();
     }
   }
+  private String wrapTimeSlotToString(List<TimeRange> timeSlot) {
+    StringBuilder builder = new StringBuilder();
+    for(TimeRange t : timeSlot){
+      builder.append(t.toString())
+      .append(";");
+    }
+    return builder.toString();
+  }
+  private List<TimeRange> wrapStringToTimeSlot(String data){
+    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
+    String[] listSlot = data.split(";");
+    List<TimeRange> result = new ArrayList<TimeRange>();
+    for(int i = 0 ; i < listSlot.length; i ++){
+      TimeRange tr = new TimeRangeimpl();
+      String[] tr_data = listSlot[i].split(",");
+      try {
+        tr.setBegin(formatter.parse(tr_data[0]));
+        tr.setEnd(formatter.parse(tr_data[1]));
+      } catch (ParseException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      if(tr_data.length > 2){
+        for(int j = 2; j < tr_data.length; j ++)
+          tr.addVote(tr_data[j]);
+      }
+      result.add(tr);
+    }
+    return result;
+  }
   private <T extends Referenceable> String getIDToString(List<T> list) {
     StringBuilder result = new StringBuilder();
     for(T p : list) result.append(p.getID() + ",");      
@@ -260,12 +304,12 @@ public class MeetingServiceimpl implements MeetingService {
 
   @Override
   public List<String> getParticipants(String meetingID) {
-    
+
     Node meetingNode = getMeetingNode(meetingID);
     if(meetingNode == null) return null;
     String data = "";
     try {
-       data = meetingNode.getProperty(PARTICIPANTS).getString();
+      data = meetingNode.getProperty(PARTICIPANTS).getString();
     } catch (ValueFormatException e) {
       e.printStackTrace();
     } catch (PathNotFoundException e) {
@@ -303,13 +347,13 @@ public class MeetingServiceimpl implements MeetingService {
       data += username + ",";
       meetingNode.setProperty(PARTICIPANTS, data);
       meetingNode.getSession().save();
-   } catch (ValueFormatException e) {
-     e.printStackTrace();
-   } catch (PathNotFoundException e) {
-     e.printStackTrace();
-   } catch (RepositoryException e) {
-     e.printStackTrace();
-   }
+    } catch (ValueFormatException e) {
+      e.printStackTrace();
+    } catch (PathNotFoundException e) {
+      e.printStackTrace();
+    } catch (RepositoryException e) {
+      e.printStackTrace();
+    }
     return true;
   }
   @Override
@@ -322,16 +366,16 @@ public class MeetingServiceimpl implements MeetingService {
       data.replace(username + ",", "");
       meetingNode.setProperty(PARTICIPANTS, data);
       meetingNode.getSession().save();
-   } catch (ValueFormatException e) {
-     e.printStackTrace();
-   } catch (PathNotFoundException e) {
-     e.printStackTrace();
-   } catch (RepositoryException e) {
-     e.printStackTrace();
-   }
+    } catch (ValueFormatException e) {
+      e.printStackTrace();
+    } catch (PathNotFoundException e) {
+      e.printStackTrace();
+    } catch (RepositoryException e) {
+      e.printStackTrace();
+    }
     return true;
   }
-  
+
   @Override
   public boolean setMeetingClose(String meetingID){
     Meeting meeting = getMeeting(meetingID);
@@ -341,7 +385,7 @@ public class MeetingServiceimpl implements MeetingService {
       return true;
     }
     else
-    return false;
+      return false;
   }
 
 }

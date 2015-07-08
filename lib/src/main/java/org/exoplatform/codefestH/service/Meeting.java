@@ -128,11 +128,6 @@ public interface Meeting extends Referenceable{
    */
   public void setFinalTime(TimeRange time);
   
-  /**
-   * Set list time range of Meeting
-   * @param time
-   */
-  public void setTimeRange(List<TimeRange> time);
   
   /**
    * Get conclude time of Meeting, after closing poll
@@ -172,6 +167,7 @@ public interface Meeting extends Referenceable{
 
 
   void setParticipants(List<String> participants);
+  public void setTimeRange(List<TimeRange> timeSlot);
   
 
 }
