@@ -9,7 +9,7 @@ List<Meeting> meetings = uicomponent.getMeetingsByOwnerOrParticipant();
 <div class="uiBox schedule-portlet">
 	<div class="uiContentBox schedule-detail">
 		<div class="clearfix top-detail">
-			<div class="pull-right"><button class="btn btn-primary" type="submit" onclick="<%=uicomponent.event("AddNew")%>">Add Schedule meeting</button></div>
+			<div class="pull-right"><button class="btn btn-primary" type="submit" onclick="<%=uicomponent.event("AddNew")%>">Schedule a Meeting</button></div>
 			<h2 class="title-schedule">Schedule a meeting</h2>
 		</div>
 		<div class="table-responsive" >
@@ -17,7 +17,6 @@ List<Meeting> meetings = uicomponent.getMeetingsByOwnerOrParticipant();
 								<thead>
 									<tr>
 										<th >Title</th>
-										<th>Date</th>
 										<th>Location</th>
 										<th>Description</th>
 										<th>Action</th>
@@ -26,19 +25,13 @@ List<Meeting> meetings = uicomponent.getMeetingsByOwnerOrParticipant();
 								<tbody>
 								<%for(Meeting meeting: meetings) {%>
 									<tr>
-										<td width="160"><a href="<%=uicomponent.event("View")%>"><%=meeting.getTitle()%></a></td>
-										<td><%=uicomponent.getDateString(meeting.getTimeSlot().get(0).getBegin())%></td>
+										<td width="160"><a href="<%=uicomponent.event("View", meeting.getID())%>"><%=meeting.getTitle()%></a></td>
 										<td><%=meeting.getLocation()%></td>
 										<td><%=meeting.getDescription()%></td>
 										<td class="center actionContainer"> 
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
-	                            
-	            						</td>
+               				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
+               				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
+         						</td>
 									</tr>
 								<%}%>
 								</tbody>

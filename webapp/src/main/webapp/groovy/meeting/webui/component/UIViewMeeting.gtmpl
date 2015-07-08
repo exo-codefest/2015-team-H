@@ -1,14 +1,22 @@
+<%
+   import org.exoplatform.codefestH.service.TimeRange;
+
+   def meeting = uicomponent.getMeeting();
+   def participants = uicomponent.getParticipants();
+   def timeSlots = uicomponent.getTimeSlot().get(0);
+%>
+<%uiform.begin()%>
 <div class="uiBox schedule-portlet">
     <div class="uiContentBox">
         <div class="top-detail-schedule">
             <div class="media ">
                 <div class="pull-left ">
-                    <a href="javascript:void(0);" title="Welcome to your new Social Intranet!">
-                        <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Welcome to your new Social Intranet!">
+                    <a href="javascript:void(0);" title="<%=meeting.getTitle()%>">
+                        <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="<%=meeting.getTitle()%>">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4>Sprint Meeting </h4>
+                    <h4><%=meeting.getTitle()%></h4>
                     <div class="action">
 
                         <a class="edit muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
@@ -19,8 +27,8 @@
                             less than a minute ago
                         </a>
                     </div>
-                    <div class="localtion">Location : <a href="">Ha Noi</a></div>
-                    <div class="description">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione, libero reprehenderit nulla, iusto, repellendus non debitis deserunt voluptatum consequuntur, similique laborum. Aliquid, consectetur, id? Commodi ducimus optio sed repellendus!</div>
+                    <div class="localtion">Location : <a href=""><%=meeting.getLocation()%></a></div>
+                    <div class="description"><%=meeting.getDescription()%></div>
 
                 </div>
             </div>
@@ -29,7 +37,7 @@
             <div class="uiTabNormal uiTabInPage">
                 <ul class="nav nav-tabs" id="myTab1">
                     <li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
-                    <li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="table-view">
@@ -45,20 +53,20 @@
                         <div class="table-responsive" >
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <caption>
-                                    July 2015 Sat 11
+                                    <%=meeting.getCreateTime()%>
                                 </caption>
                                 <tbody>
+                               <%
+                                  for(String participant : participants) {
+                                %>
                                 <tr>
                                     <td class="name-info">&nbsp;</td>
+                                    <%for(String timeSlot : timeSlots.split(";")) {%>
                                     <td>
-                                        <p class="time-choice">8:00 AM</p>
+                                        <p class="time-choice"><%=timeSlot%></p>
                                     </td>
-                                    <td>
-                                        <p class="time-choice">9:00 AM</p>
-                                    </td>
-                                    <td>
-                                        <p class="time-choice">10:00 AM</p>
-                                    </td>
+                                    <%}%>
+
 
                                 </tr>
                                 <tr>
@@ -67,36 +75,30 @@
                                             <a href="/portal/intranet/profile/root" class="avatarXSmall">
                                                 <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">
                                             </a>
-                                            <input type="text" placeholder="Nguyen Thanh Trung" >
+                                            <input type="text" placeholder="<%=uicomponent.getDisplayName(participant)%>">
                                         </div>
                                     </td>
+                                    <%for(String timeSlot : timeSlots.split(";")) {%>
                                     <td width="60">
-                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox"
+                                        name="timeSlot<%=timeSlot%>" class="checkbox" id=""><span></span></span></p>
                                     </td>
-                                    <td width="60">
-                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
-
-                                    </td>
-                                    <td width="60">
-                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
-
-                                    </td>
+                                    <%}%>
 
                                 </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>
                         <div class="clearfix">
 
                             <div class="pull-right " style="margin: 15px 0 0 0">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-primary" onclick="<%=uicomponent.event("Save")%>">Save</button>
                                 <button type="button" class="btn" onclick="<%=uicomponent.event("Cancel")%>">Cancel</button>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="administration-view">
-                        admin view
-                    </div>
+
                 </div>
             </div>
 
@@ -105,3 +107,4 @@
         </div>
     </div>
 </div>
+<%uiform.end()%>

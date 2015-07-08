@@ -16,11 +16,10 @@
  */
 package org.exoplatform.codefestH.service.mock;
 
+import org.exoplatform.codefestH.service.TimeRange;
+
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-
-import org.exoplatform.codefestH.service.TimeRange;
 
 /**
  * Created by The eXo Platform SAS
@@ -42,6 +41,26 @@ public class TimeRangeimpl implements TimeRange {
   @Override
   public void setBegin(Date date) {
     this.begin = date;
+  }
+
+  @Override
+  public void setBeginTime(String beginTime) {
+
+  }
+
+  @Override
+  public String getBeginTime() {
+    return null;
+  }
+
+  @Override
+  public void setEndTime(String endTime) {
+
+  }
+
+  @Override
+  public String getEndTime() {
+    return null;
   }
 
   @Override

@@ -16,13 +16,12 @@
  */
 package org.exoplatform.codefestH.service.impl;
 
+import org.exoplatform.codefestH.service.TimeRange;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-
-import org.exoplatform.codefestH.service.TimeRange;
 
 /**
  * Created by The eXo Platform SAS
@@ -34,6 +33,8 @@ public class TimeRangeimpl implements TimeRange {
 
   private Date begin;
   private Date end;
+  private String beginTime;
+  private String endTime;
   private List<String> whoVote = new ArrayList<String>();
 
   @Override
@@ -44,6 +45,26 @@ public class TimeRangeimpl implements TimeRange {
   @Override
   public void setBegin(Date date) {
     this.begin = date;
+  }
+
+  @Override
+  public void setBeginTime(String beginTime) {
+    this.beginTime = beginTime;
+  }
+
+  @Override
+  public String getBeginTime() {
+    return this.beginTime;
+  }
+
+  @Override
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  @Override
+  public String getEndTime() {
+    return this.endTime;
   }
 
   @Override

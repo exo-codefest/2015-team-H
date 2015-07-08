@@ -19,8 +19,6 @@ package org.exoplatform.codefestH.service;
 import java.util.Date;
 import java.util.List;
 
-import javax.jcr.Node;
-
 /**
  * Created by The eXo Platform SAS
  * Author : eXoPlatform
@@ -41,6 +39,14 @@ public interface TimeRange extends Referenceable{
    * @param date
    */
   public void setBegin(Date date);
+
+  public void setBeginTime(String beginTime);
+
+  public String getBeginTime();
+
+  public void setEndTime(String endTime);
+
+  public String getEndTime();
   
   /**
    * get End of Time Range

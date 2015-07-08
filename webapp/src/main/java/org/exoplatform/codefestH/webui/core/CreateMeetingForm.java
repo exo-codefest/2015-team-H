@@ -1,11 +1,15 @@
 package org.exoplatform.codefestH.webui.core;
 
 import org.apache.commons.lang.StringUtils;
+import org.exoplatform.codefestH.listeners.ScheduleMeetingPlugin;
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.TimeRange;
 import org.exoplatform.codefestH.service.impl.TimeRangeimpl;
 import org.exoplatform.codefestH.webui.portlet.MeetingPortlet;
+import org.exoplatform.commons.api.notification.NotificationContext;
+import org.exoplatform.commons.api.notification.model.PluginKey;
+import org.exoplatform.commons.notification.impl.NotificationContextImpl;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -106,15 +110,21 @@ public class CreateMeetingForm extends UIForm {
       if (StringUtils.isNotEmpty(participants)) {
         meeting.setParticipants(Arrays.asList(participants.split(",")));
       }
+      List<TimeRange> timeRangeList = new ArrayList<TimeRange>();
       for (UIComponent uiFormStringInput : timeSlots) {
         String time24 = ((UIFormStringInput) uiFormStringInput).getValue();
         if (StringUtils.isNotEmpty(time24)) {
           TimeRange timeRange = new TimeRangeimpl();
-          date.setHours(Integer.parseInt(time24));
-          timeRange.setBegin((Date) date.clone());
+          timeRange.setBeginTime(time24);
+          timeRangeList.add(timeRange);
         }
       }
+      meeting.setTimeRange(timeRangeList);
       meetingService.saveMeeting(meeting);
+
+      NotificationContext ctx = NotificationContextImpl.cloneInstance().append(ScheduleMeetingPlugin.MEETING,
+              meeting.getID());
+      ctx.getNotificationExecutor().with(ctx.makeCommand(PluginKey.key(ScheduleMeetingPlugin.ID))).execute(ctx);
 
       // Update screen
       createMeetingForm.setRendered(false);

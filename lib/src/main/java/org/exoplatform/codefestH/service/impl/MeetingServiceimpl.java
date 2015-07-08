@@ -16,35 +16,22 @@
  */
 package org.exoplatform.codefestH.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.PathNotFoundException;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.jcr.Value;
-import javax.jcr.ValueFormatException;
-import javax.jcr.lock.LockException;
-import javax.jcr.nodetype.ConstraintViolationException;
-import javax.jcr.version.VersionException;
-
-import org.exoplatform.codefestH.service.CalendarAPI;
-import org.exoplatform.codefestH.service.Meeting;
-import org.exoplatform.codefestH.service.MeetingService;
-import org.exoplatform.codefestH.service.Referenceable;
-import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.*;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.app.SessionProviderService;
-import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.wcm.utils.WCMCoreUtils;
+
+import javax.jcr.*;
+import javax.jcr.lock.LockException;
+import javax.jcr.nodetype.ConstraintViolationException;
+import javax.jcr.version.VersionException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -93,7 +80,7 @@ public class MeetingServiceimpl implements MeetingService {
   private Session getSession() throws Exception {
 
     ManageableRepository repository = repoService.getCurrentRepository();
-    return WCMCoreUtils.getUserSessionProvider().getSession(ws, repository);
+    return WCMCoreUtils.getSystemSessionProvider().getSession(ws, repository);
   }
 
 
@@ -283,13 +270,23 @@ public class MeetingServiceimpl implements MeetingService {
     if(timeSlot == null) return "";
     StringBuilder builder = new StringBuilder();
     for(TimeRange t : timeSlot){
-      builder.append(t.toString())
-      .append(";");
+      if(builder.length() > 0) {
+        builder.append(";");
+      }
+      builder.append(t.getBeginTime());
     }
     return builder.toString();
   }
   private List<TimeRange> wrapStringToTimeSlot(String data){
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy/hh:mm:ss");
+    List<TimeRange> result = new ArrayList<TimeRange>();
+    String[] listSlot = data.split(";");
+    for(String timeSlot : listSlot) {
+      TimeRange timeRange = new TimeRangeimpl();
+      timeRange.setBeginTime(data);
+      result.add(timeRange);
+    }
+    return result;
+    /*SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy/hh:mm:ss");
     String[] listSlot = data.split(";");
     List<TimeRange> result = new ArrayList<TimeRange>();
     for(int i = 0 ; i < listSlot.length; i ++){
@@ -315,7 +312,7 @@ public class MeetingServiceimpl implements MeetingService {
       }
       result.add(tr);
     }
-    return result;
+    return result;*/
   }
   private <T extends Referenceable> String getIDToString(List<T> list) {
     StringBuilder result = new StringBuilder();

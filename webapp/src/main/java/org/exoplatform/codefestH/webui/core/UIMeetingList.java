@@ -47,8 +47,11 @@ public class UIMeetingList extends UIComponentDecorator {
   static public class ViewActionListener extends EventListener<UIMeetingList> {
     public void execute(Event<UIMeetingList> event) throws Exception {
       UIMeetingList uiMeetingList = event.getSource();
+      String meetingName = event.getRequestContext().getRequestParameter(OBJECTID);
       uiMeetingList.setRendered(false);
-      uiMeetingList.getAncestorOfType(MeetingPortlet.class).getChild(UIViewMeeting.class).setRendered(true);
+      UIViewMeeting uiViewMeeting = uiMeetingList.getAncestorOfType(MeetingPortlet.class).getChild(UIViewMeeting.class);
+      uiViewMeeting.setMeetingName(meetingName);
+      uiViewMeeting.setRendered(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMeetingList.getParent());
     }
   }
