@@ -294,8 +294,10 @@ public class MeetingServiceimpl implements MeetingService {
       TimeRange tr = new TimeRangeimpl();
       String[] tr_data = listSlot[i].split(",");
       try {
-        if(!"".equals(formatter.parse(tr_data[0]))) tr.setBegin(formatter.parse(tr_data[0]));
-        if(!"".equals(formatter.parse(tr_data[1]))) tr.setEnd(formatter.parse(tr_data[1]));
+        if(!"".equals(tr_data[0])) 
+          tr.setBegin(formatter.parse(tr_data[0]));
+        if(!"".equals(tr_data[1])) 
+          tr.setEnd(formatter.parse(tr_data[1]));
       } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
