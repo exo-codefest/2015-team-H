@@ -171,8 +171,10 @@ public class MeetingServiceimpl implements MeetingService {
     Session session;
     try {
       session = this.getSession();
-      Node meetingRoot = session.getRootNode().getNode(this.rootMeetingPath);
-      if(meetingRoot == null) {
+      Node meetingRoot;
+      if(session.getRootNode().hasNode(rootMeetingPath))
+        meetingRoot = session.getRootNode().getNode(this.rootMeetingPath);
+      else {
         meetingRoot = session.getRootNode().addNode(this.rootMeetingPath);
         meetingRoot.save();
         return new ArrayList<Meeting>();
@@ -393,6 +395,7 @@ public class MeetingServiceimpl implements MeetingService {
   @Override
   public boolean setMeetingClose(String meetingID){
     Meeting meeting = getMeeting(meetingID);
+    if(meeting.getFinalTime() == null) return false;
     if(calendarAPI.createEvent(meeting)){
       meeting.setClose(true);
       saveMeeting(meeting);
