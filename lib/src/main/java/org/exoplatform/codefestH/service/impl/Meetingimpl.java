@@ -124,6 +124,8 @@ public class Meetingimpl implements Meeting {
 
   @Override
   public List<TimeRange> getTimeSlot() {
+    if(this.timeSlot == null)
+      this.timeSlot = new ArrayList<TimeRange>();
     return this.timeSlot;
   }
 
