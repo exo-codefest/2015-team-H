@@ -295,6 +295,9 @@ public class MeetingServiceimpl implements MeetingService {
     for(int i = 0 ; i < listSlot.length; i ++){
       TimeRange tr = new TimeRangeimpl();
       String[] tr_data = listSlot[i].split(",");
+      if(tr_data.length == 0) {
+        continue;
+      }
       try {
         if(!"".equals(tr_data[0])) 
           tr.setBegin(formatter.parse(tr_data[0]));
