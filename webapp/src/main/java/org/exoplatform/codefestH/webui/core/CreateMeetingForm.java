@@ -1,13 +1,11 @@
 package org.exoplatform.codefestH.webui.core;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefestH.service.Meeting;
-import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.TimeRange;
 import org.exoplatform.codefestH.service.impl.TimeRangeimpl;
-import org.exoplatform.codefestH.service.mock.Meetingimpl;
+import org.exoplatform.codefestH.webui.portlet.MeetingPortlet;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -26,14 +24,11 @@ import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
-import org.exoplatform.webui.form.validator.NumberRangeValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @ComponentConfig(
         lifecycle = UIFormLifecycle.class,
@@ -125,7 +120,20 @@ public class CreateMeetingForm extends UIForm {
       createMeetingForm.setRendered(false);
       createMeetingForm.getAncestorOfType(UIPortletApplication.class).getChild(UIMeetingList.class).setRendered(true);
 
+      createMeetingForm.clearForm();
       event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm.getParent());
+    }
+  }
+
+  public void clearForm() {
+    this.getUIStringInput(FIELD_TITLE_TEXT_BOX).setValue(StringUtils.EMPTY);
+    this.getUIStringInput(FIELD_LOCATION_TEXT_BOX).setValue(StringUtils.EMPTY);
+    this.getUIFormTextAreaInput(FIELD_DESCRIPTION_TEXT_AREA).setValue(StringUtils.EMPTY);
+    this.getUIFormDateTimeInput(FIELD_DATE_TEXT_BOX).setValue(StringUtils.EMPTY);
+    this.getUIStringInput(FIELD_PARTICIPANTS_TEXT_BOX).setValue(StringUtils.EMPTY);
+    List<UIComponent> timeSlots = this.getChild(UIFormMultiValueInputSet.class).getChildren();
+    for (UIComponent uiFormStringInput : timeSlots) {
+      ((UIFormStringInput) uiFormStringInput).setValue(StringUtils.EMPTY);
     }
   }
 
@@ -134,7 +142,7 @@ public class CreateMeetingForm extends UIForm {
       CreateMeetingForm createMeetingForm = event.getSource();
       createMeetingForm.setRendered(false);
       createMeetingForm.getAncestorOfType(UIPortletApplication.class).getChild(UIMeetingList.class).setRendered(true);
-
+      createMeetingForm.clearForm();
       event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm.getParent());
     }
   }
@@ -152,7 +160,8 @@ public class CreateMeetingForm extends UIForm {
   static public class AddActionListener extends EventListener<CreateMeetingForm> {
     public void execute(Event<CreateMeetingForm> event) throws Exception {
       CreateMeetingForm createMeetingForm = event.getSource();
-      event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm);
+      createMeetingForm.getAncestorOfType(MeetingPortlet.class).getPopupContainer().deActivate();
+      event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm.getParent());
     }
   }
 

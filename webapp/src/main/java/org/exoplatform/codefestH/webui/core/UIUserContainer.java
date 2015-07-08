@@ -45,15 +45,18 @@ public class UIUserContainer extends UIContainer implements UIPopupComponent {
       MeetingPortlet meetingPortlet = event.getSource().getAncestorOfType(MeetingPortlet.class);
       meetingPortlet.getChild(CreateMeetingForm.class).getUIStringInput(CreateMeetingForm
               .FIELD_PARTICIPANTS_TEXT_BOX).setValue(uiUserSelector.getSelectedUsers());
+      meetingPortlet.getPopupContainer().deActivate();
+      event.getRequestContext().addUIComponentToUpdateByAjax(meetingPortlet);
+
     }
   }
 
   static public class CloseActionListener extends EventListener<UIUserContainer> {
     public void execute(Event<UIUserContainer> event) throws Exception {
       UIUserContainer uiUserContainer = event.getSource();
-      UIUserSelector uiUserSelector = uiUserContainer.getChild(UIUserSelector.class);
       MeetingPortlet meetingPortlet = event.getSource().getAncestorOfType(MeetingPortlet.class);
       meetingPortlet.getPopupContainer().deActivate();
+      event.getRequestContext().addUIComponentToUpdateByAjax(meetingPortlet);
     }
   }
 }
