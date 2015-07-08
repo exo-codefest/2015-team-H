@@ -21,6 +21,7 @@ import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NumberRangeValidator;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class CreateMeetingForm extends UIForm {
 
   public CreateMeetingForm() throws Exception {
     UIFormStringInput titleTextBox = new UIFormStringInput(FIELD_TITLE_TEXT_BOX, FIELD_TITLE_TEXT_BOX, null);
+    titleTextBox.addValidator(MandatoryValidator.class);
     this.addUIFormInput(titleTextBox);
 
     UIFormStringInput locationTextBox = new UIFormStringInput(FIELD_LOCATION_TEXT_BOX, FIELD_LOCATION_TEXT_BOX, null);
@@ -60,6 +62,7 @@ public class CreateMeetingForm extends UIForm {
     UIFormDateTimeInput dateTextBox = new UIFormDateTimeInput(FIELD_DATE_TEXT_BOX, FIELD_DATE_TEXT_BOX, null);
     dateTextBox.setDisplayTime(false);
     dateTextBox.setReadOnly(true);
+    dateTextBox.addValidator(MandatoryValidator.class);
     this.addUIFormInput(dateTextBox);
 
     UIFormMultiValueInputSet uiFormMValue =
@@ -89,6 +92,7 @@ public class CreateMeetingForm extends UIForm {
       String desc = createMeetingForm.getUIFormTextAreaInput(FIELD_DESCRIPTION_TEXT_AREA).getValue();
       String date = createMeetingForm.getUIFormDateTimeInput(FIELD_DATE_TEXT_BOX).getValue();
       String participants = createMeetingForm.getUIStringInput(FIELD_PARTICIPANTS_TEXT_BOX).getValue();
+
 
       MeetingService meetingService = CommonsUtils.getService(MeetingService.class);
 
