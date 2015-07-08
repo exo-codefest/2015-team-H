@@ -43,7 +43,7 @@ import java.util.UUID;
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.SelectMemberActionListener.class),
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.CancelMeetingActionListener.class),
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.AddActionListener.class),
-                @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.RemoveActionListener.class),
+                @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.RemoveActionListener.class)
         })
 public class CreateMeetingForm extends UIForm {
   public static String FIELD_TITLE_TEXT_BOX = "titleTextBox";
@@ -119,7 +119,7 @@ public class CreateMeetingForm extends UIForm {
           timeRange.setBegin((Date) date.clone());
         }
       }
-      meetingService.saveMeeting(meeting);meeting.getTimeSlot().get(0).getBegin()..toString("")
+      meetingService.saveMeeting(meeting);
 
       // Update screen
       createMeetingForm.setRendered(false);

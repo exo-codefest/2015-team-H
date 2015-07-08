@@ -2,7 +2,7 @@
   xmlns:jcr="http://www.jcp.org/jcr/1.0">
 
   <nodeType name="teamH:meeting" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
-  <supertypes>
+    <supertypes>
       <supertype>nt:base</supertype>
     </supertypes>
     <propertyDefinitions>

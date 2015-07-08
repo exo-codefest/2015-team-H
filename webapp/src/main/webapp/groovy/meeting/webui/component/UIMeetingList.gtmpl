@@ -68,8 +68,8 @@ List<Meeting> meetings = uicomponent.getMeetingsByOwnerOrParticipant();
 								<tbody>
 								<%for(Meeting meeting: meetings) {%>
 									<tr>
-										<td width="160"><a href=""><%=meeting.getTitle()%></a></td>
-										<td>12/12/2015</td>
+										<td width="160"><a href="<%=uicomponent.event("View")%>"><%=meeting.getTitle()%></a></td>
+										<td><%=uicomponent.getDateString(meeting.getTimeSlot().get(0).getBegin())%></td>
 										<td><%=meeting.getLocation()%></td>
 										<td><%=meeting.getDescription()%></td>
 										<td class="center actionContainer"> 

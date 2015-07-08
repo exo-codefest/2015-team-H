@@ -1,0 +1,107 @@
+<div class="uiBox schedule-portlet">
+    <div class="uiContentBox">
+        <div class="top-detail-schedule">
+            <div class="media ">
+                <div class="pull-left ">
+                    <a href="javascript:void(0);" title="Welcome to your new Social Intranet!">
+                        <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Welcome to your new Social Intranet!">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4>Sprint Meeting </h4>
+                    <div class="action">
+
+                        <a class="edit muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
+                        <a class="user muted" href="javascript:void(0)" ><i class="uiIconUser"></i> 1</a>
+                        <a class="comment muted" href="javascript:void(0)" ><i class="uiIconComment"></i> 6</a>
+                        <a class="calendar-view muted" href="javascript:void(0)" data-original-title="Calendar View" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconWatch"> </i> Canlendar View</a>
+                        <a class="time-publish muted" href="javascript:void(0)"><i class="uiIconClock"></i>
+                            less than a minute ago
+                        </a>
+                    </div>
+                    <div class="localtion">Location : <a href="">Ha Noi</a></div>
+                    <div class="description">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione, libero reprehenderit nulla, iusto, repellendus non debitis deserunt voluptatum consequuntur, similique laborum. Aliquid, consectetur, id? Commodi ducimus optio sed repellendus!</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="bottom-detail-schedule">
+            <div class="uiTabNormal uiTabInPage">
+                <ul class="nav nav-tabs" id="myTab1">
+                    <li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+                    <li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="table-view">
+                        <div class="clearfix">
+                            <div class="infor-meta pull-right">
+
+                                <a class="muted" style=" margin: 15px 10px 10px;" href="javascript:void(0)"  data-original-title="Add More  Participants" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconPLFMan" style=" vertical-align: -2px;"></i> Who is missing ? </a>
+                            </div>
+                            <div class="infor">
+                                Most popular date: <strong>undefined</strong> <span class="muted">&nbsp;|&nbsp;</span> <span style="">1 of 2 invitees</span> <span class="muted">&nbsp;|&nbsp;</span><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="Edit Poll" href="javascript:void(0)" class=" muted"><i class="uiIconValidate"></i> Close Poll</a>
+                            </div>
+                        </div>
+                        <div class="table-responsive" >
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <caption>
+                                    July 2015 Sat 11
+                                </caption>
+                                <tbody>
+                                <tr>
+                                    <td class="name-info">&nbsp;</td>
+                                    <td>
+                                        <p class="time-choice">8:00 AM</p>
+                                    </td>
+                                    <td>
+                                        <p class="time-choice">9:00 AM</p>
+                                    </td>
+                                    <td>
+                                        <p class="time-choice">10:00 AM</p>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="name-info">
+                                        <div>
+                                            <a href="/portal/intranet/profile/root" class="avatarXSmall">
+                                                <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">
+                                            </a>
+                                            <input type="text" placeholder="Nguyen Thanh Trung" >
+                                        </div>
+                                    </td>
+                                    <td width="60">
+                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+                                    </td>
+                                    <td width="60">
+                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+
+                                    </td>
+                                    <td width="60">
+                                        <p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix">
+
+                            <div class="pull-right " style="margin: 15px 0 0 0">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn" onclick="<%=uicomponent.event("Cancel")%>">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="administration-view">
+                        admin view
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+        </div>
+    </div>
+</div>

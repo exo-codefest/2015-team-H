@@ -11,7 +11,9 @@ import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @ComponentConfig(
@@ -36,8 +38,18 @@ public class UIMeetingList extends UIComponentDecorator {
     return meetings;
   }
 
+  public String getDateString(Date date) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    String format = formatter.format(date);
+    return format;
+  }
+
   static public class ViewActionListener extends EventListener<UIMeetingList> {
     public void execute(Event<UIMeetingList> event) throws Exception {
+      UIMeetingList uiMeetingList = event.getSource();
+      uiMeetingList.setRendered(false);
+      uiMeetingList.getAncestorOfType(MeetingPortlet.class).getChild(UIViewMeeting.class).setRendered(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMeetingList.getParent());
     }
   }
 
