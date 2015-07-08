@@ -13,7 +13,7 @@
       <value-param>
         <name>conf-path</name>
         <description>JCR configuration file</description>
-        <value>classpath:/conf/standalone/repository-configuration.xml</value>
+        <value>classpath:/conf/standalone/repositor-configuration.xml</value>
       </value-param>
       <properties-param>
         <name>working-conf</name>

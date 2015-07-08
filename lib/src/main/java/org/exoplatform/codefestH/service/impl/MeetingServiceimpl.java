@@ -236,8 +236,8 @@ public class MeetingServiceimpl implements MeetingService {
     }
     if(m.getComments() != null)
       n.setProperty(COMMENTS,getIDToString(m.getComments()));
-    if(m.getLocation() != null)
-      n.setProperty(LOCATION,m.getLocation().getID());
+    
+      n.setProperty(LOCATION,m.getLocation());
     if(m.getTimeSlot() != null)
       n.setProperty(TIME_SLOT,getIDToString(m.getTimeSlot()));
     } catch (ValueFormatException e) {

@@ -142,19 +142,25 @@ public class Meetingimpl implements Meeting {
   }
 
   @Override
-  public MeetingRoom getLocation() {
+  public String getLocation() {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public boolean setLocation(MeetingRoom room) {
+  public boolean setLocation(String room) {
     // TODO Auto-generated method stub
     return false;
   }
 
   @Override
   public void setParticipants(List<String> participants) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void setTimeRange(List<TimeRange> time) {
     // TODO Auto-generated method stub
     
   }

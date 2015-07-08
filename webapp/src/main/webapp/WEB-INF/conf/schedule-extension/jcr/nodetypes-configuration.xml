@@ -1,54 +1,6 @@
 <nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
   xmlns:jcr="http://www.jcp.org/jcr/1.0">
 
-  <nodeType name="teamH:timerange" isMixin="false"
-    hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-      <supertype>mix:referenceable</supertype>
-    </supertypes>
-    <propertyDefinitions>
-      <!-- List user vote for this time range -->
-      <propertyDefinition name="mt:user"
-        requiredType="String" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-      <!-- Begin of time range -->
-      <propertyDefinition name="mt:begin"
-        requiredType="Date" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-      <!-- End of time range -->
-      <propertyDefinition name="mt:end" requiredType="Date"
-        autoCreated="false" mandatory="false" onParentVersion="COPY"
-        protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-      <!-- Is final time range -->
-      <propertyDefinition name="mt:final"
-        requiredType="Boolean" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-    </propertyDefinitions>
-  </nodeType>
-
-  <nodeType name="teamH:meetingroom" isMixin="false"
-    hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-      <supertype>mix:referenceable</supertype>
-    </supertypes>
-    <propertyDefinitions>
-      <!-- Title of a meeting room -->
-      <propertyDefinition name="mt:title"
-        requiredType="String" autoCreated="false" mandatory="false"
-        onParentVersion="COPY" protected="false" multiple="false">
-        <valueConstraints />
-      </propertyDefinition>
-    </propertyDefinitions>
-  </nodeType>
-
   <nodeType name="teamH:meetingcomment" isMixin="false"
     hasOrderableChildNodes="false" primaryItemName="">
     <supertypes>
@@ -90,7 +42,7 @@
       </propertyDefinition>
       <!-- Location of a meeting -->
       <propertyDefinition name="mt:location"
-        requiredType="teamH:meetingroom" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />
       </propertyDefinition>
@@ -128,7 +80,7 @@
       </propertyDefinition>
       <!-- Time range provide for a meeting -->
       <propertyDefinition name="mt:timeslot"
-        requiredType="teamH:timerange" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="true">
         <valueConstraints />
       </propertyDefinition>
@@ -146,6 +98,12 @@
       </propertyDefinition>
       <!-- Hidden the answer - Only Owner can see the answers -->
       <propertyDefinition name="mt:hiddenAnswers"
+        requiredType="Boolean" autoCreated="false" mandatory="false"
+        onParentVersion="COPY" protected="false" multiple="false">
+        <valueConstraints />
+      </propertyDefinition>
+            <!-- Is closed -->
+      <propertyDefinition name="mt:status"
         requiredType="Boolean" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />

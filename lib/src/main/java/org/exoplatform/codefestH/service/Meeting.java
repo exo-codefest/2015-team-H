@@ -116,17 +116,23 @@ public interface Meeting extends Referenceable{
   
   /**
    * Remove comment of Meeting
-   * @param path path to JCR Node store data of comment
+   * @param id ID of JCR Node store data of comment
    * @param user user perform action
    * @return false if comment not belong to meeting or user is not Meeting owner or Comment owner
    */
-  public boolean removeComment(String path, String user);
+  public boolean removeComment(String id, String user);
   
   /**
    * Set conclude time of Meeting, after closing poll
    * @param time
    */
   public void setFinalTime(TimeRange time);
+  
+  /**
+   * Set list time range of Meeting
+   * @param time
+   */
+  public void setTimeRange(List<TimeRange> time);
   
   /**
    * Get conclude time of Meeting, after closing poll
@@ -153,14 +159,14 @@ public interface Meeting extends Referenceable{
    * Get location of Meeting
    * @return
    */
-  public MeetingRoom getLocation();
+  public String getLocation();
   
   /**
    * Set location of Meeting
    * @param room
    * @return
    */
-  public boolean setLocation(MeetingRoom room);
+  public boolean setLocation(String room);
 
 
 

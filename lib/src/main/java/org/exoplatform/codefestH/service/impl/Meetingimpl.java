@@ -44,7 +44,7 @@ public class Meetingimpl implements Meeting {
   private List<MeetingComment> comments;
   private boolean status;
   private TimeRange finalTime;
-  private MeetingRoom location;
+  private String location;
   private String id;
 
   public Meetingimpl(String id, Date creatTime, Date updateTime, String title, String description, String owner, boolean status){
@@ -136,7 +136,7 @@ public class Meetingimpl implements Meeting {
   }
 
   @Override
-  public boolean removeComment(String path, String user) {
+  public boolean removeComment(String ID, String user) {
     // TODO Auto-generated method stub
     return false;
   }
@@ -149,8 +149,7 @@ public class Meetingimpl implements Meeting {
 
   @Override
   public TimeRange getFinalTime() {
-    // TODO Auto-generated method stub
-    return null;
+    return finalTime;
   }
 
   @Override
@@ -160,21 +159,24 @@ public class Meetingimpl implements Meeting {
 
   @Override
   public boolean setClose(boolean status) {
-    // TODO dfdf
     this.status = status;
     return true;
   }
 
   @Override
-  public MeetingRoom getLocation() {
-    // TODO Auto-generated method stub
+  public String getLocation() {
     return this.location;
   }
 
   @Override
-  public boolean setLocation(MeetingRoom room) {
+  public boolean setLocation(String room) {
     this.location = room;
     return true;
+  }
+  @Override
+  public void setTimeRange(List<TimeRange> time) {
+    this.timeSlot = time;
+    
   }
 
 

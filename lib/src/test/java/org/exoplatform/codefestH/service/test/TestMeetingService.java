@@ -21,6 +21,7 @@ import java.util.Date;
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.impl.Meetingimpl;
+import org.exoplatform.services.jcr.config.RepositoryServiceConfiguration;
 
 /**
  * Created by The eXo Platform SAS
@@ -31,6 +32,8 @@ import org.exoplatform.codefestH.service.impl.Meetingimpl;
 public class TestMeetingService extends BaseTest {
   public void testSave(){
     MeetingService service = getService(MeetingService.class);
+    RepositoryServiceConfiguration config = getService(RepositoryServiceConfiguration.class);
+    String configXML = config.getConfigurationXML();
     Meeting meeting = new Meetingimpl("", new Date(), new Date(),"title", "description", "owner",  false);
     service.saveMeeting(meeting);
     Meeting test = service.getMeeting(meeting.getID());
