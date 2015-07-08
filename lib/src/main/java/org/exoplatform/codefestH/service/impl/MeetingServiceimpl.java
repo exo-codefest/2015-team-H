@@ -176,7 +176,7 @@ public class MeetingServiceimpl implements MeetingService {
         meetingRoot = session.getRootNode().getNode(this.rootMeetingPath);
       else {
         meetingRoot = session.getRootNode().addNode(this.rootMeetingPath);
-        meetingRoot.save();
+        session.save();
         return new ArrayList<Meeting>();
       }
       ArrayList<Meeting> result = new ArrayList<Meeting>();
