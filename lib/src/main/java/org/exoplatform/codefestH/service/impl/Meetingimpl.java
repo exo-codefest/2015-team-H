@@ -49,8 +49,10 @@ public class Meetingimpl implements Meeting {
 
   public Meetingimpl(String id, Date creatTime, Date updateTime, String title, String description, String owner, boolean status){
     this.id = id;
-    this.creatTime = creatTime;
-    this.updateTime = updateTime;
+    if(creatTime != null) this.creatTime = creatTime;
+    else this.creatTime = new Date();
+    if(updateTime != null) this.updateTime = updateTime;
+    else this.updateTime = new Date();
     this.title = title;
     this.description = description;
     this.owner = owner;
@@ -129,9 +131,8 @@ public class Meetingimpl implements Meeting {
   }
 
   @Override
-  public boolean addComment(String username, String comment) {
-    MeetingComment cmt = new MeetingCommentimpl();
-    this.comments.add(cmt);
+  public boolean addComment(String username, String comment) {    
+    this.comments.add(null);
     return true;
   }
 
@@ -174,8 +175,8 @@ public class Meetingimpl implements Meeting {
     return true;
   }
   @Override
-  public void setTimeRange(List<TimeRange> time) {
-    this.timeSlot = time;
+  public void setTimeRange(List<TimeRange> timeSlot) {
+    this.timeSlot = timeSlot;
     
   }
 

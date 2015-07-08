@@ -29,19 +29,7 @@ import javax.jcr.Node;
  * Store data about TimeRange object
  */
 public interface TimeRange extends Referenceable{
-  /**
-   * Get path of JCR Node store data of Time Range
-   * @return
-   */
-  public String getTimeRangeNodePath();
-  
-  /**
-   * Set path of JCR Node store data of Time Range
-   * @param timeRangeNodePath
-   * @return
-   */
-  public boolean setTimeRangeNodePath(String timeRangeNodePath);
-  
+
   /**
    * get Start of Time Range
    * @return

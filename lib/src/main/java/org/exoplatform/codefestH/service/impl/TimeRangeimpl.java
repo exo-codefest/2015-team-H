@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.codefestH.service.mock;
+package org.exoplatform.codefestH.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -30,8 +31,8 @@ import org.exoplatform.codefestH.service.TimeRange;
  */
 public class TimeRangeimpl implements TimeRange {
 
-  private Date begin = null;
-  private Date end = null;
+  private Date begin;
+  private Date end;
   private List<String> whoVote;
 
   @Override
@@ -81,5 +82,18 @@ public class TimeRangeimpl implements TimeRange {
     // TODO Auto-generated method stub
     return null;
   }
-
+  @Override
+  public String toString() {
+    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
+    StringBuilder builder = new StringBuilder();
+    builder.append(formatter.format(begin))
+            .append(",")
+            .append(formatter.format(end))
+            .append(",");
+    for(String s : whoVote){
+      builder.append(s)
+              .append(",");
+    }
+    return builder.toString();
+  }
 }
