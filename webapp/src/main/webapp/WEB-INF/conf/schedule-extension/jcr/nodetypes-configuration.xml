@@ -2,6 +2,9 @@
   xmlns:jcr="http://www.jcp.org/jcr/1.0">
 
   <nodeType name="teamH:meeting" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+  <supertypes>
+      <supertype>nt:base</supertype>
+    </supertypes>
     <propertyDefinitions>
       <!-- Title of a meeting -->
       <propertyDefinition name="mt:title"
@@ -43,13 +46,13 @@
       </propertyDefinition>
       <!-- Date of a meeting -->
       <propertyDefinition name="mt:date"
-        requiredType="Date" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />
       </propertyDefinition>
       <!-- Last update of a meeting -->
       <propertyDefinition name="mt:update"
-        requiredType="Date" autoCreated="false" mandatory="false"
+        requiredType="String" autoCreated="false" mandatory="false"
         onParentVersion="COPY" protected="false" multiple="false">
         <valueConstraints />
       </propertyDefinition>

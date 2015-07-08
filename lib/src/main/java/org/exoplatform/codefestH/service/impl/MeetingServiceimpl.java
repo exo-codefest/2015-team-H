@@ -106,15 +106,9 @@ public class MeetingServiceimpl implements MeetingService {
       if(!session.getRootNode().hasNode(rootMeetingPath)) return null;
       Node rootMeeting = session.getRootNode().getNode(rootMeetingPath);
       if(rootMeeting == null) return null;
-      Node meetingNode = rootMeeting.getNode("/" + id);
+      Node meetingNode = rootMeeting.getNode(id);
       if(meetingNode == null) return null;
-      Meeting result = new Meetingimpl(id, 
-                                       meetingNode.getProperty(CREATE_DATE).getDate().getTime(), 
-                                       meetingNode.getProperty(UPDATE_TIME).getDate().getTime(), 
-                                       meetingNode.getProperty(TITLE).getString(), 
-                                       meetingNode.getProperty(DESCRIPTION).getString(), 
-                                       meetingNode.getProperty(OWNER).getString(), 
-                                       meetingNode.getProperty(STATUS).getBoolean());
+      Meeting result = wrapNodeToMeeting(meetingNode);
       return result;
     } catch (Exception e) {
       // TODO Auto-generated catch block
@@ -153,17 +147,18 @@ public class MeetingServiceimpl implements MeetingService {
       wrapMeetingToNode(meeting, meetingNode);
       meetingNode.save();
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    return false;
+    return true;
   }
 
   @Override
   public List<Meeting> getMeetingByOwner(String username) {
     // Should refactor to improve performance
     List<Meeting> temp = getAllMeeting();
+    
     ArrayList<Meeting> result = new ArrayList<Meeting>();
+    if(temp == null) return result;
     for(Meeting m : temp){
       if(m.getOwner().equals(username)) result.add(m);
     }
@@ -208,22 +203,29 @@ public class MeetingServiceimpl implements MeetingService {
   }
 
   private Meeting wrapNodeToMeeting(Node n){
-
+    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
     try {
-      Meeting result = new Meetingimpl(n.getName(), 
-                                       n.getProperty(CREATE_DATE).getDate().getTime(), 
-                                       n.getProperty(UPDATE_TIME).getDate().getTime(), 
-                                       n.getProperty(TITLE).getString(), 
-                                       n.getProperty(DESCRIPTION).getString(), 
-                                       n.getProperty(OWNER).getString(), 
-                                       n.getProperty(STATUS).getBoolean());
-      if(result.isClose()){
-        result.setFinalTime(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()).get(0));
+      Meeting result;
+      try {
+        result = new Meetingimpl(n.getName(), 
+                                         formatter.parse(n.getProperty(CREATE_DATE).getString()), 
+                                         formatter.parse(n.getProperty(UPDATE_TIME).getString()), 
+                                         n.getProperty(TITLE).getString(), 
+                                         n.getProperty(DESCRIPTION).getString(), 
+                                         n.getProperty(OWNER).getString(), 
+                                         n.getProperty(STATUS).getBoolean());
+        if(result.isClose()){
+          result.setFinalTime(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()).get(0));
+        }
+        else{
+          result.setTimeRange(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()));
+        }
+        return result;
+      } catch (ParseException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
       }
-      else{
-        result.setTimeRange(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()));
-      }
-      return result;
+
     } catch (ValueFormatException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -238,12 +240,13 @@ public class MeetingServiceimpl implements MeetingService {
   }
 
   private void wrapMeetingToNode(Meeting m, Node n){
-    //n.setProperty(name, value)
+    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
     try {
       n.setProperty(TITLE,m.getTitle());
       n.setProperty(DESCRIPTION,m.getDescription());
       n.setProperty(OWNER,m.getOwner());
-      n.setProperty(UPDATE_TIME,"");
+      n.setProperty(UPDATE_TIME,formatter.format(m.getUpdateTime()));
+      n.setProperty(CREATE_DATE,formatter.format(m.getCreateTime()));
       n.setProperty(STATUS,m.isClose());
       if(m.getParticipants() != null){      
         StringBuilder participants = new StringBuilder();
@@ -275,6 +278,7 @@ public class MeetingServiceimpl implements MeetingService {
     }
   }
   private String wrapTimeSlotToString(List<TimeRange> timeSlot) {
+    if(timeSlot == null) return "";
     StringBuilder builder = new StringBuilder();
     for(TimeRange t : timeSlot){
       builder.append(t.toString())
@@ -290,8 +294,8 @@ public class MeetingServiceimpl implements MeetingService {
       TimeRange tr = new TimeRangeimpl();
       String[] tr_data = listSlot[i].split(",");
       try {
-        tr.setBegin(formatter.parse(tr_data[0]));
-        tr.setEnd(formatter.parse(tr_data[1]));
+        if(!"".equals(formatter.parse(tr_data[0]))) tr.setBegin(formatter.parse(tr_data[0]));
+        if(!"".equals(formatter.parse(tr_data[1]))) tr.setEnd(formatter.parse(tr_data[1]));
       } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
