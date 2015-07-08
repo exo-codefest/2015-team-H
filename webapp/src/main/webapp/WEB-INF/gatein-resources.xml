@@ -13,6 +13,16 @@
   <portlet>
     <name>MeetingPortlet</name>
     <module>
+      <script>
+        <path>/js/meeting.js</path>
+      </script>
+      <depends>
+        <module>jquery</module>
+        <as>$</as>
+      </depends>
+      <depends>
+        <module>bts_tab</module>
+      </depends>
       <depends>
         <module>base</module>
       </depends>
