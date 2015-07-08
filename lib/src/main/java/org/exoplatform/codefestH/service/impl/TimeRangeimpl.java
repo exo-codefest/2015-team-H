@@ -17,6 +17,7 @@
 package org.exoplatform.codefestH.service.impl;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class TimeRangeimpl implements TimeRange {
 
   private Date begin;
   private Date end;
-  private List<String> whoVote;
+  private List<String> whoVote = new ArrayList<String>();
 
   @Override
   public Date getBegin() {
@@ -84,12 +85,14 @@ public class TimeRangeimpl implements TimeRange {
   }
   @Override
   public String toString() {
-    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy/hh:mm:ss");
     StringBuilder builder = new StringBuilder();
-    builder.append(formatter.format(begin))
-            .append(",")
-            .append(formatter.format(end))
-            .append(",");
+    if(begin != null)
+    builder.append(formatter.format(begin));
+    builder.append(",");
+    if(end != null)
+    builder.append(formatter.format(end));
+          builder.append(",");
     for(String s : whoVote){
       builder.append(s)
               .append(",");
