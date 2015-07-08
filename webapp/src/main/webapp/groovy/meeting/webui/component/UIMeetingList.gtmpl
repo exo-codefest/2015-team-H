@@ -1,7 +1,7 @@
 <div class="uiBox schedule-portlet">
 	<div class="uiContentBox schedule-detail">
 		<div class="clearfix top-detail">
-		<div class="pull-right"><button class="btn btn-primary" type="submit">Add New Event</button></div>
+			<div class="pull-right"><button class="btn btn-primary" type="submit" onclick="<%=uicomponent.event("AddNew")%>">Add New Event</button></div>
 		<h2 class="title-schedule">Schedule a meeting</h2>
 		</div>
 		<div class="uiTabNormal uiTabInPage">

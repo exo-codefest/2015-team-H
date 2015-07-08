@@ -1,6 +1,4 @@
-<div class="UIForm uiCreateMeetingForm">
-
-	<%uiform.begin()%>
+   <%uiform.begin()%>
 
 	<div class="uiBox schedule-portlet">
 		<div class="uiContentBox">
@@ -63,8 +61,8 @@
 						</div>
 					</div>
 					<div class="control-group">
-						<button class="btn btn-primary" type="submit">Submit</button>
-						<button class="btn" type="submit">Cancel</button>
+						<button class="btn btn-primary" type="button" onclick="<%=uicomponent.event("SaveMeeting")%>">Submit</button>
+						<button class="btn" type="button" onclick="<%=uicomponent.event("CancelMeeting")%>">Cancel</button>
 					</div>
 				</div>
 			</fieldset>

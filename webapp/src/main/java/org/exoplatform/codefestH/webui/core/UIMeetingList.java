@@ -2,6 +2,7 @@ package org.exoplatform.codefestH.webui.core;
 
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingService;
+import org.exoplatform.codefestH.webui.portlet.MeetingPortlet;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -42,6 +43,10 @@ public class UIMeetingList extends UIComponentDecorator {
 
   static public class AddNewActionListener extends EventListener<UIMeetingList> {
     public void execute(Event<UIMeetingList> event) throws Exception {
+      UIMeetingList uiMeetingList = event.getSource();
+      uiMeetingList.setRendered(false);
+      ((MeetingPortlet)uiMeetingList.getParent()).getChild(CreateMeetingForm.class).setRendered(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMeetingList.getParent());
     }
   }
 }

@@ -1,16 +1,20 @@
 package org.exoplatform.codefestH.webui.core;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.codefestH.service.Meeting;
 import org.exoplatform.codefestH.service.MeetingRoom;
 import org.exoplatform.codefestH.service.MeetingService;
 import org.exoplatform.codefestH.service.TimeRange;
+import org.exoplatform.codefestH.service.impl.TimeRangeimpl;
 import org.exoplatform.codefestH.service.mock.Meetingimpl;
 import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPopupContainer;
+import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.Event.Phase;
@@ -25,6 +29,8 @@ import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NumberRangeValidator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -35,7 +41,7 @@ import java.util.UUID;
         events = {
                 @EventConfig(listeners = CreateMeetingForm.SaveMeetingActionListener.class),
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.SelectMemberActionListener.class),
-                @EventConfig(listeners = CreateMeetingForm.CancelMeetingActionListener.class),
+                @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.CancelMeetingActionListener.class),
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.AddActionListener.class),
                 @EventConfig(phase = Phase.DECODE, listeners = CreateMeetingForm.RemoveActionListener.class),
         })
@@ -86,21 +92,47 @@ public class CreateMeetingForm extends UIForm {
 
   static public class SaveMeetingActionListener extends EventListener<CreateMeetingForm> {
     public void execute(Event<CreateMeetingForm> event) throws Exception {
+      // Get data from screen
       CreateMeetingForm createMeetingForm = event.getSource();
       String title = createMeetingForm.getUIStringInput(FIELD_TITLE_TEXT_BOX).getValue();
       String location = createMeetingForm.getUIStringInput(FIELD_LOCATION_TEXT_BOX).getValue();
       String desc = createMeetingForm.getUIFormTextAreaInput(FIELD_DESCRIPTION_TEXT_AREA).getValue();
-      String date = createMeetingForm.getUIFormDateTimeInput(FIELD_DATE_TEXT_BOX).getValue();
+      Date date = createMeetingForm.getUIFormDateTimeInput(FIELD_DATE_TEXT_BOX).getCalendar().getTime();
       String participants = createMeetingForm.getUIStringInput(FIELD_PARTICIPANTS_TEXT_BOX).getValue();
+      String userId = ConversationState.getCurrent().getIdentity().getUserId();
+      List<UIComponent> timeSlots = createMeetingForm.getChild(UIFormMultiValueInputSet.class).getChildren();
 
-
+      // Save
       MeetingService meetingService = CommonsUtils.getService(MeetingService.class);
+      Meeting meeting = new org.exoplatform.codefestH.service.impl.Meetingimpl(
+              "", null, null, title, desc, userId, false);
+      meeting.setLocation(location);
+      meeting.setParticipants(Arrays.asList(participants.split(",")));
+      for (UIComponent uiFormStringInput : timeSlots) {
+        String time24 = ((UIFormStringInput) uiFormStringInput).getValue();
+        if (StringUtils.isNotEmpty(time24)) {
+          TimeRange timeRange = new TimeRangeimpl();
+          date.setHours(Integer.parseInt(time24));
+          timeRange.setBegin((Date) date.clone());
+        }
+      }
+      meetingService.saveMeeting(meeting);
 
+      // Update screen
+      createMeetingForm.setRendered(false);
+      createMeetingForm.getAncestorOfType(UIPortletApplication.class).getChild(UIMeetingList.class).setRendered(true);
+
+      event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm.getParent());
     }
   }
 
   static public class CancelMeetingActionListener extends EventListener<CreateMeetingForm> {
     public void execute(Event<CreateMeetingForm> event) throws Exception {
+      CreateMeetingForm createMeetingForm = event.getSource();
+      createMeetingForm.setRendered(false);
+      createMeetingForm.getAncestorOfType(UIPortletApplication.class).getChild(UIMeetingList.class).setRendered(true);
+
+      event.getRequestContext().addUIComponentToUpdateByAjax(createMeetingForm.getParent());
     }
   }
 
@@ -126,8 +158,8 @@ public class CreateMeetingForm extends UIForm {
       CreateMeetingForm uiForm = event.getSource();
       UIFormMultiValueInputSet uiSet = uiForm.findFirstComponentOfType(UIFormMultiValueInputSet.class);
       List<UIComponent> children = uiSet.getChildren();
-      for(int i = 0; i < children.size(); i ++) {
-        UIFormInputBase<?> uiInput = (UIFormInputBase<?>)children.get(i);
+      for (int i = 0; i < children.size(); i++) {
+        UIFormInputBase<?> uiInput = (UIFormInputBase<?>) children.get(i);
         uiInput.setId(FIELD_TIME_TEXT_BOX + String.valueOf(i));
         uiInput.setName(FIELD_TIME_TEXT_BOX + String.valueOf(i));
       }
