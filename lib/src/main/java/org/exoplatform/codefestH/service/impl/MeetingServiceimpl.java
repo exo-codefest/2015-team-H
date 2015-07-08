@@ -175,7 +175,7 @@ public class MeetingServiceimpl implements MeetingService {
       if(meetingRoot == null) {
         meetingRoot = session.getRootNode().addNode(this.rootMeetingPath);
         meetingRoot.save();
-        return null;
+        return new ArrayList<Meeting>();
       }
       ArrayList<Meeting> result = new ArrayList<Meeting>();
       NodeIterator iterator = meetingRoot.getNodes();
@@ -190,7 +190,7 @@ public class MeetingServiceimpl implements MeetingService {
       e.printStackTrace();
     }
 
-    return null;
+    return new ArrayList<Meeting>();
   }
   @Override
   public List<Meeting> getMeetingByParticipant(String username) {
@@ -287,7 +287,7 @@ public class MeetingServiceimpl implements MeetingService {
     return builder.toString();
   }
   private List<TimeRange> wrapStringToTimeSlot(String data){
-    SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd/MM/yyyy/hh:mm:ss");
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy/hh:mm:ss");
     String[] listSlot = data.split(";");
     List<TimeRange> result = new ArrayList<TimeRange>();
     for(int i = 0 ; i < listSlot.length; i ++){
