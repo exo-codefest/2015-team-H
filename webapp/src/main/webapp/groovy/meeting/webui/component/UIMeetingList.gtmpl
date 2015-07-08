@@ -1,0 +1,700 @@
+<div class="uiBox schedule-portlet">
+	<div class="uiContentBox schedule-detail">
+		<div class="clearfix">
+		<div class="pull-right"><button class="btn btn-primary" type="submit">Add New Event</button></div>
+		<legend>Schedule a meeting</legend>
+		</div>
+		<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a  href="#upcomming-view" data-toggle="tab">Lists Upcomming</a></li>
+					<li><a  href="#poll-view" data-toggle="tab">Lists Poll view</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="upcomming-view">
+						<div class="table-responsive" >
+							<table class="uiGrid table table-hover table-striped" border="0" cellpadding="0" cellspacing="0">
+								<thead>
+									<tr>
+										<th >Title</th>
+										<th>Date</th>
+										<th>Location</th>
+										<th>Description</th>
+
+									</tr>
+								</thead>
+								<tbody>								
+									<tr>
+										<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+									</tr>
+									<tr>
+										<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+									</tr>
+									<tr>
+									<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane" id="poll-view">
+						<div class="table-responsive" >
+							<table class="uiGrid table table-hover table-striped" border="0" cellpadding="0" cellspacing="0">
+								<thead>
+									<tr>
+										<th >Title</th>
+										<th>Date</th>
+										<th>Location</th>
+										<th>Description</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>								
+									<tr>
+										<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+										<td class="center actionContainer"> 
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
+	                            
+	            						</td>
+									</tr>
+										<tr>
+										<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+										<td class="center actionContainer"> 
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
+	                            
+	            						</td>
+									</tr>
+										<tr>
+										<td width="160"><a href="">Sprint meeting</a></td>
+										<td>12/12/2015</td>
+										<td>Ha Noi</td>
+										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+										<td class="center actionContainer"> 
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
+	                               
+
+	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
+	                            
+	            						</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+
+<div class="uiBox schedule-portlet">
+	<div class="uiContentBox">
+		<form action="" method="post" class="create-schedule">
+			<fieldset>
+				<legend>Schedule a meeting</legend>
+				<div class="section-input">
+					<div class="row-fluid">
+						<div class="span6">
+							<div class="control-group">
+								<label for="title">Title</label>
+								<input type="text" id="title">
+							</div>
+							<div class="control-group">
+								<label for="location">Location<span class="muted"> ( optional )</span> </label>
+								<input type="text" id="location">
+							</div>
+							<div class="control-group">
+								<label for="description">Description<span class="muted"> ( optional )</span></label>
+								<textarea rows="10" name="description" id="description" cols="50" class="form-control"></textarea>
+							</div>
+						</div>
+						<div class="span6">
+							<div class="control-group">
+								<label for="date">Date Proposals</label>
+								<input type="text" id="date">
+							</div>
+
+							<div class="control-group time-section ">
+								<div class="UIFormMultiValueInputSet clearfix">
+									<label for="time1">Time  <span class="muted">( time 24 )</span></label>
+									<div class="multiValueContainer">									
+										<input type="text" id="time1">
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+									</div>
+									<div class="multiValueContainer">									
+										<input type="text" id="time1">
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+									</div>
+									<div class="multiValueContainer">									
+										<input type="text" id="time1">
+										<a data-placement="bottom" rel="tooltip" alt="Remove Item"  class="actionIcon" data-original-title="Remove Item"><i class="uiIconDelete uiIconLightGray"></i></a>
+										<a data-placement="bottom" rel="tooltip" alt="Add Item"  class="actionIcon" data-original-title="Add Item"><i class="uiIconAddIcon uiIconLightGray"></i></a>
+
+									</div>
+
+								</div>
+							</div>
+							<div class="control-group ">
+								<label for="participants">Invite participants</label>
+								<input type="text" placeholder="Select Owner" value="root" id="UIPermissionInput" name="UIPermissionInput">
+								<a data-placement="bottom" rel="tooltip" href="javascript:void(0)" class="actionIcon" data-original-title="Select User">
+			<i class="uiIconUser uiIconLightGray"></i>
+		</a>
+								<!-- <div class="blastInputPeople">
+									<textarea title="What are you working on?" cols="30" rows="10" id="composerInput" name="composerInput" class="textarea" style="visibility: hidden; display: none;"></textarea>
+									<div class="exo-mentions" style="width: 270px;">
+										<div contenteditable="true" class="replaceTextArea editable" g_editable="true" id="DisplaycomposerInput" data-mentions="true" style="min-height:68px;margin-bottom: 10px;
+								    " tabindex="667">
+											<span contenteditable="false">Root Root<i contenteditable="true" class="uiIconClose uiIconLightGray">x</i></span>
+										</div>
+								
+										<div class="autocomplete-menu" style="display: block;">
+											<ul style="display: block;">
+												<li data-display="Root Root" data-ref-type="contact" data-ref-id="@root" class="data" data-uid="mention_7"><div class="avatarSmall"><img src="/eXoSkin/skin/images/system/UserAvtDefault.png"></div><strong>R</strong>oot <strong>R</strong>oot (root)</li>
+								
+												<li data-display="trung nguyen thanh" data-ref-type="contact" data-ref-id="@trung" class="data active" data-uid="mention_8"><div class="avatarSmall"><img src="/eXoSkin/skin/images/system/UserAvtDefault.png"></div>t<strong>r</strong>ung nguyen thanh (trung)</li>
+											</ul>
+										</div>
+									</div>
+								</div> -->
+								<!-- <p class="muted">Ex: "@ro" or "@Ro Br" to search Robert Bruce</p> -->
+							</div>
+						</div>
+					</div>
+					<div class="control-group">
+						<button class="btn btn-primary" type="submit">Submit</button>
+						<button class="btn" type="submit">Cancel</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<!-- this is detail schedule-->
+
+
+<div class="uiBox schedule-portlet">
+	<div class="uiContentBox">
+		<div class="top-detail-schedule">
+			<div class="media ">
+				<div class="pull-left ">
+					<a href="javascript:void(0);" title="Welcome to your new Social Intranet!">
+						<img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Welcome to your new Social Intranet!">
+					</a>
+				</div>
+				<div class="media-body">
+					<h4>Sprint Meeting </h4>
+					<div class="action">
+						
+						<a class="edit muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
+						<a class="user muted" href="javascript:void(0)" ><i class="uiIconUser"></i> 1</a>
+						<a class="comment muted" href="javascript:void(0)" ><i class="uiIconComment"></i> 6</a>
+						<a class="calendar-view muted" href="javascript:void(0)" data-original-title="Calendar View" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconWatch"> </i> Canlendar View</a>
+						<a class="time-publish muted" href="javascript:void(0)"><i class="uiIconClock"></i>
+							less than a minute ago
+						</a>
+					</div>
+					<div class="localtion">Location : <a href="">Ha Noi</a></div>
+					<div class="description">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ratione, libero reprehenderit nulla, iusto, repellendus non debitis deserunt voluptatum consequuntur, similique laborum. Aliquid, consectetur, id? Commodi ducimus optio sed repellendus!</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="bottom-detail-schedule">
+			<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+					<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="table-view">
+					<div class="clearfix">
+						<div class="infor-meta pull-right">
+						
+						<a class="muted" style=" margin: 15px 10px 10px;" href="javascript:void(0)"  data-original-title="Add More  Participants" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconPLFMan" style=" vertical-align: -2px;"></i> Who is missing ? </a>
+					</div>
+						<div class="infor">
+							Most popular date: <strong>undefined</strong> <span class="muted">&nbsp;|&nbsp;</span> <span style="">1 of 2 invitees</span> <span class="muted">&nbsp;|&nbsp;</span><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="Edit Poll" href="javascript:void(0)" class=" muted"><i class="uiIconValidate"></i> Close Poll</a> 
+						</div>
+					</div>
+					<div class="table-responsive" >
+						<table border="0" cellpadding="0" cellspacing="0">
+							<caption>
+								July 2015 Sat 11
+							</caption>
+							<tbody>
+								<tr>
+									<td class="name-info">&nbsp;</td>
+									<td>
+										<p class="time-choice">8:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">9:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">10:00 AM</p>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">	
+									<div>									
+										<a href="/portal/intranet/profile/root" class="avatarXSmall">
+										  <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">        
+										</a>
+										<input type="text" placeholder="Nguyen Thanh Trung" >
+										</div>
+									</td>
+									<td width="60">
+										<p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+									</td>
+									<td width="60">
+										<p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+
+									</td>
+									<td width="60">
+										<p class="check-option"><span class="uiCheckbox"><input type="checkbox" name="" class="checkbox" id=""><span></span></span></p>
+
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="clearfix">
+
+						<div class="pull-right " style="margin: 15px 0 0 0">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn">Cancel</button>
+						</div>
+					</div>
+					</div>
+					<div class="tab-pane" id="administration-view">
+						admin view
+					</div>
+				</div>
+			</div>
+
+			<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+					<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="table-view">
+					<div class="clearfix">
+						<div class="infor-meta pull-right">
+						
+						<a class="muted " style=" margin: 15px 10px 10px;" href="javascript:void(0)"  data-original-title="Add More  Participants" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconPLFMan" style=" vertical-align: -2px;"></i> Who is missing ? </a>
+					</div>
+						<div class="infor">
+							Most popular date: <strong> July 2015 Sat 11 9:00 AM</strong> <span class="muted">&nbsp;|&nbsp;</span> <span style="">1 of 2 invitees</span> <span class="muted">&nbsp;|&nbsp;</span><a data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="Edit Poll" href="javascript:void(0)" class=" muted"><i class="uiIconValidate"></i> Close Poll</a> 
+						</div>
+					</div>
+					<div class="table-responsive" >
+						<table border="0" cellpadding="0" cellspacing="0">
+							<caption>
+								July 2015 Sat 11
+							</caption>
+							<tbody>
+								<tr>
+									<td class="name-info">&nbsp;</td>
+									<td>
+										<p class="time-choice">8:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">9:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">10:00 AM</p>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">	
+									<div>		
+										<a class="actionIcon muted" href="javascript:void(0)"  data-original-title="Delete Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconTrash"></i>  </a>
+										<a class="actionIcon muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> </a>							
+										<a href="/portal/intranet/profile/root" class="avatarXSmall">
+										  <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">        
+										</a>
+										<span class="author">Nguyen Thanh Trung</span>
+										</div>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-no-selected">
+											
+										</p>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-selected ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+									<td width="60">
+										<p class="check-option check-option-no-selected "></p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">	
+									<div>		
+										<a class="actionIcon muted" href="javascript:void(0)"  data-original-title="Delete Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconTrash"></i>  </a>
+										<a class="actionIcon muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> </a>							
+										<a href="/portal/intranet/profile/root" class="avatarXSmall">
+										  <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">        
+										</a>
+										<span class="author">Pham duy dong</span>
+										</div>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-no-selected">
+											
+										</p>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-selected ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+									<td width="60">
+										<p class="check-option check-option-selected ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">&nbsp;</td>
+									<td width="60">
+										<strong>0</strong>
+									</td>
+									<td width="60">
+										<strong>2</strong>
+
+									</td>
+									<td width="60">
+										<strong>0</strong>
+
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					</div>
+					<div class="tab-pane" id="administration-view">
+						admin view
+					</div>
+				</div>
+			</div>
+
+			<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+					<li><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="table-view">
+					<div class="clearfix">
+						<div class="infor-meta pull-right">
+						
+						<a class=" muted" href="javascript:void(0)"  data-original-title="Export poll to PDF" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIcon16x16FilePdf uiIcon16x16nt_file"></i> Export poll to PDF</a>
+					</div>
+						<div class="infor">
+							Nguyen Trung chose  <strong> July 2015 Sat 11 9:00 AM</strong> <span class="muted">&nbsp;|&nbsp;</span> <span style="">1 of 2 invitees</span> <span class="muted">&nbsp;|&nbsp;</span><a  href="javascript:void(0)" class=" muted"> Poll is closed</a> 
+						</div>
+					</div>
+					<div class="table-responsive" >
+						<table border="0" cellpadding="0" cellspacing="0">
+							<caption>
+								July 2015 Sat 11
+							</caption>
+							<tbody>
+								<tr>
+									<td class="name-info">&nbsp;</td>
+									<td>
+										<p class="time-choice">8:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">9:00 AM</p>
+									</td>
+									<td>
+										<p class="time-choice">10:00 AM</p>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">	
+									<div>		
+														
+										<a href="/portal/intranet/profile/root" class="avatarXSmall">
+										  <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">        
+										</a>
+										<span class="author">Nguyen Thanh Trung</span>
+										</div>
+									</td>
+									<td width="60">
+										<p class="check-option ">
+											
+										</p>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-selected ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+									<td width="60">
+										<p class="check-option "></p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">	
+									<div>		
+															
+										<a href="/portal/intranet/profile/root" class="avatarXSmall">
+										  <img alt="Root Root" src="/eXoSkin/skin/images/system/UserAvtDefault.png">        
+										</a>
+										<span class="author">Pham duy dong</span>
+										</div>
+									</td>
+									<td width="60">
+										<p class="check-option ">
+											
+										</p>
+									</td>
+									<td width="60">
+										<p class="check-option check-option-selected ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+									<td width="60">
+										<p class="check-option  ">
+											<i class="uiIconTick "></i>	
+										</p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td class="name-info">&nbsp;</td>
+									<td width="60">
+										<strong>0</strong>
+									</td>
+									<td width="60">
+										<strong>2</strong>
+
+									</td>
+									<td width="60">
+										<strong>1</strong>
+
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					</div>
+					<div class="tab-pane" id="administration-view">
+						admin view
+					</div>
+				</div>
+			</div>
+
+
+
+			
+			<div class="uiTabNormal uiTabInPage">
+				<ul class="nav nav-tabs" id="myTab">
+					<li ><a  href="#table-view" data-toggle="tab"> Table view</a></li>
+					<li class="active"><a  href="#administration-view" data-toggle="tab">Administration</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane " id="table-view">
+						tab view
+					</div>
+					<div class="tab-pane active" id="administration-view">
+						<div class="row-fluid">
+							<div class="span4">
+								<h4>Poll</h4>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Reopen Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconRestore "></i>  Reopen poll </a>
+								</div>
+
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconValidate"></i> Close Poll</a>
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Edit Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconEdit"></i> Edit Poll</a>
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Notifications " data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconMail"></i> Notifications </a>
+
+								</div>
+
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Create a duplicate " data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconCopyNode"></i> Create a duplicate </a>
+
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Delete Poll" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconTrash"></i> Delete Poll</a>
+								</div>
+							</div>
+							<div class="span4">
+								<h4>Participants</h4>
+							
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Add more Participants " data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconPLFMan"></i> Invite Participants </a>
+
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Delete All Participants" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconTrash"></i> Delete All Participants</a>
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Delete All Comments" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconTrash"></i> Delete All Comments</a>
+								</div>
+							</div>
+							<div class="span4">
+								<h4>Print/Export</h4>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Print View " data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIconPrint"></i> Print View </a>
+
+								</div>
+								<div class="action-icon">
+								<a class=" muted" href="javascript:void(0)"  data-original-title="Export poll to PDF" data-toggle="tooltip" rel="tooltip" data-placement="bottom"><i class="uiIcon16x16FilePdf uiIcon16x16nt_file"></i> Export poll to PDF</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+			<hr/>
+		
+			<div class="commentBox " id="comment-box-container"> 
+			  	<h4>Comments</h4>
+			  <div class="commentListInfo clearfix">
+
+				<div class="pull-right numberComment">0/4</div>
+					<a href="javascript:void(0);">Hide all 4 comments.</a>
+			  </div>
+			
+			<div class="commentList">
+				<div id="">
+			  
+			    <div class="commentItem " id="">
+			  			  
+				<div class="commmentLeft">
+					<a class="avatarXSmall" href="/portal/intranet/profile/root">
+					  <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Root Root">         
+					</a>
+				</div><!--end commentLeft-->        
+				<div class="commentRight">
+					<div class="author">
+						<a href="/portal/intranet/profile/root">Root Root</a>
+						<span class="date">
+							less than a minute ago
+						 </span>
+					</div>
+					<p class="contentComment">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quaerat repudiandae ratione laudantium libero!
+					</p>          
+				</div><!--end commentRight-->
+			  
+				<a class="uiIconClose uiIconLightGray controllDelete" href="javascript:void(0)"></a>
+			  
+			  </div>
+			</div>
+			
+			<div id="">
+			  
+			  <div class="commentItem commentItemLast" id="">
+			  			  
+				<div class="commmentLeft">
+					<a class="avatarXSmall" href="/portal/intranet/profile/root">
+					  <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Root Root">         
+					</a>
+				</div><!--end commentLeft-->        
+				<div class="commentRight">
+					<div class="author">
+						<a href="/portal/intranet/profile/root">Root Root</a>
+						<span class="date">
+							less than a minute ago
+						 </span>
+					</div>
+					<p class="contentComment">
+						Lorem ipsum dolor . Quo ducimus pariatur error accusamus provident!
+					</p>          
+				</div><!--end commentRight-->
+			  
+				<a class="uiIconClose uiIconLightGray controllDelete"  href="javascript:void(0)"></a>
+			  
+			  </div>
+			</div>
+			
+			</div> <!--end commentlist-->
+			<div id="" class="commentList inputContainer inputContainerShow" style="display: block;">
+			
+			
+			  <div id="" class="commentItem commentFormBox">
+			
+					<div class="commmentLeft" style="margin-top: -5px;">
+						<a class="avatarXSmall" href="/portal/intranet/profile/root">
+						   <img src="/eXoSkin/skin/images/system/UserAvtDefault.png" alt="Root Root">        
+						</a>
+					</div><!--end commentLeft--> 
+					<div class="commentRight">
+						<div class="commentInputBox " >
+							<button id="" class="btn pull-right btn-primary DisableButton" >Comment</button>
+							<div class="commentInput" style="margin-right:95px;"><textarea title="Add your comment..." cols="30" rows="8"  class="textarea" style="width:100%;height:30px"></textarea></div>
+						</div>
+					</div><!--end commentRight-->        
+				</div> <!--end commentItem-->				
+			  </div><!--end commentlist-->			  
+			</div>
+
+		</div>
+	</div>
+</div>
