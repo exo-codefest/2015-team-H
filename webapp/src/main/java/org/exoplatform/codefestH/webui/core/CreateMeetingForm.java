@@ -80,6 +80,7 @@ public class CreateMeetingForm extends UIForm {
     values.add(StringUtils.EMPTY);
     uiFormMValue.setValue(values);
     uiFormMValue.addValidator(Time24Validator.class);
+    uiFormMValue.addValidator(MandatoryValidator.class);
     this.addUIFormInput(uiFormMValue);
 
     UIFormStringInput participantsTextBox = new UIFormStringInput(FIELD_PARTICIPANTS_TEXT_BOX,
@@ -107,7 +108,9 @@ public class CreateMeetingForm extends UIForm {
       Meeting meeting = new org.exoplatform.codefestH.service.impl.Meetingimpl(
               "", null, null, title, desc, userId, false);
       meeting.setLocation(location);
-      meeting.setParticipants(Arrays.asList(participants.split(",")));
+      if (StringUtils.isNotEmpty(participants)) {
+        meeting.setParticipants(Arrays.asList(participants.split(",")));
+      }
       for (UIComponent uiFormStringInput : timeSlots) {
         String time24 = ((UIFormStringInput) uiFormStringInput).getValue();
         if (StringUtils.isNotEmpty(time24)) {
@@ -116,7 +119,7 @@ public class CreateMeetingForm extends UIForm {
           timeRange.setBegin((Date) date.clone());
         }
       }
-      meetingService.saveMeeting(meeting);
+      meetingService.saveMeeting(meeting);meeting.getTimeSlot().get(0).getBegin()..toString("")
 
       // Update screen
       createMeetingForm.setRendered(false);

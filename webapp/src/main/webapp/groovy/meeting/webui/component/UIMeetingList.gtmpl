@@ -1,3 +1,11 @@
+<%
+import org.exoplatform.codefestH.service.Meeting;
+import java.util.List;
+
+List<Meeting> meetings = uicomponent.getMeetingsByOwnerOrParticipant();
+
+%>
+
 <div class="uiBox schedule-portlet">
 	<div class="uiContentBox schedule-detail">
 		<div class="clearfix top-detail">
@@ -57,12 +65,13 @@
 										<th>Action</th>
 									</tr>
 								</thead>
-								<tbody>								
+								<tbody>
+								<%for(Meeting meeting: meetings) {%>
 									<tr>
-										<td width="160"><a href="">Sprint meeting</a></td>
+										<td width="160"><a href=""><%=meeting.getTitle()%></a></td>
 										<td>12/12/2015</td>
-										<td>Ha Noi</td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
+										<td><%=meeting.getLocation()%></td>
+										<td><%=meeting.getDescription()%></td>
 										<td class="center actionContainer"> 
 	                               
 
@@ -73,36 +82,7 @@
 	                            
 	            						</td>
 									</tr>
-										<tr>
-										<td width="160"><a href="">Sprint meeting</a></td>
-										<td>12/12/2015</td>
-										<td>Ha Noi</td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
-										<td class="center actionContainer"> 
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
-	                            
-	            						</td>
-									</tr>
-										<tr>
-										<td width="160"><a href="">Sprint meeting</a></td>
-										<td>12/12/2015</td>
-										<td>Ha Noi</td>
-										<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia maxime quibusdam ullam dolore, non aliquam tempore cupiditate rerum culpa unde molestiae obcaecati ipsam. Explicabo aut, eligendi fugiat est rem similique!</td>
-										<td class="center actionContainer"> 
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Edit Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconEditInfo uiIconLightGray"></i></a>
-	                               
-
-	                        				<a class="actionIcon" data-original-title="Delete Page" data-placement="bottom" rel="tooltip" data-toggle="tooltip" ><i class="uiIconDelete uiIconLightGray"></i></a>
-	                            
-	            						</td>
-									</tr>
+								<%}%>
 								</tbody>
 							</table>
 						</div>
