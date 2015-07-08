@@ -156,7 +156,7 @@ public class MeetingServiceimpl implements MeetingService {
   public List<Meeting> getMeetingByOwner(String username) {
     // Should refactor to improve performance
     List<Meeting> temp = getAllMeeting();
-    
+
     ArrayList<Meeting> result = new ArrayList<Meeting>();
     if(temp == null) return result;
     for(Meeting m : temp){
@@ -210,12 +210,12 @@ public class MeetingServiceimpl implements MeetingService {
       Meeting result;
       try {
         result = new Meetingimpl(n.getName(), 
-                                         formatter.parse(n.getProperty(CREATE_DATE).getString()), 
-                                         formatter.parse(n.getProperty(UPDATE_TIME).getString()), 
-                                         n.getProperty(TITLE).getString(), 
-                                         n.getProperty(DESCRIPTION).getString(), 
-                                         n.getProperty(OWNER).getString(), 
-                                         n.getProperty(STATUS).getBoolean());
+                                 formatter.parse(n.getProperty(CREATE_DATE).getString()), 
+                                 formatter.parse(n.getProperty(UPDATE_TIME).getString()), 
+                                 n.getProperty(TITLE).getString(), 
+                                 n.getProperty(DESCRIPTION).getString(), 
+                                 n.getProperty(OWNER).getString(), 
+                                 n.getProperty(STATUS).getBoolean());
         if(result.isClose()){
           result.setFinalTime(wrapStringToTimeSlot(n.getProperty(TIME_SLOT).getString()).get(0));
         }
@@ -299,10 +299,12 @@ public class MeetingServiceimpl implements MeetingService {
         continue;
       }
       try {
+
         if(!"".equals(tr_data[0])) 
           tr.setBegin(formatter.parse(tr_data[0]));
-        if(!"".equals(tr_data[1])) 
-          tr.setEnd(formatter.parse(tr_data[1]));
+        if(tr_data.length > 1)
+          if(!"".equals(tr_data[1])) 
+            tr.setEnd(formatter.parse(tr_data[1]));
       } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
